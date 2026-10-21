@@ -1,1 +1,88 @@
-/* Reconstruction uses strictly the saved Next.js stylesheets mounted in index.html */
+/* Reconstruction uses the saved Next.js stylesheets mounted in index.html */
+
+/* Signed-In App Theme & Component Styles */
+.replit-signed-in-root {
+  background-color: #1E1E1F !important;
+  color: #E9EAEA !important;
+  font-family: 'Replit Diatype', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+}
+
+.replit-sidebar {
+  background-color: #18191B !important;
+  color: #E9EAEA !important;
+  border-right: 1px solid #2B2B2D !important;
+  width: 240px !important;
+  min-width: 240px !important;
+  max-width: 240px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.replit-main-surface {
+  background-color: #1E1E1F !important;
+  color: #E9EAEA !important;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.replit-card {
+  background-color: #252627 !important;
+  border: 1px solid #3E3E41 !important;
+  border-radius: 8px !important;
+  color: #E9EAEA !important;
+}
+
+.replit-card:hover {
+  border-color: #52545A !important;
+  background-color: #2A2B2D !important;
+}
+
+.replit-input-card {
+  background-color: rgba(37, 38, 39, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 12px !important;
+}
+
+.replit-notice-box {
+  background-color: #152337 !important;
+  border: 1px solid #203653 !important;
+  border-radius: 8px !important;
+  color: #E9EAEA !important;
+}
+
+.replit-modal-surface {
+  background-color: #18191B !important;
+  border: 1px solid #3E3E41 !important;
+  color: #E9EAEA !important;
+}
+
+.replit-input-field {
+  background-color: #252627 !important;
+  border: 1px solid #3E3E41 !important;
+  color: #E9EAEA !important;
+}
+
+.replit-btn-primary {
+  background-color: #ff3c00 !important;
+  color: #ffffff !important;
+}
+
+.replit-btn-primary:hover {
+  background-color: #e03500 !important;
+}
+
+.replit-btn-secondary {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+}
+
+.replit-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.14) !important;
+}

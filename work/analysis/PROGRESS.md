@@ -306,3 +306,48 @@ Verified via CDP `Emulation.setDeviceMetricsOverride` and `rea compare-web-scree
 | **MegaNav Dropdowns (S1)** | Real mouse hover detection (`Input.dispatchMouseEvent`) dynamically opening and closing Products, Solutions, and Resources dropdown menus. | Clicking sub-items navigates locally; does not trigger live analytics telemetry. | `TopNavigation.tsx`, `module-966784.js` |
 | **Marketing Footer (S9)** | Full navigation columns, social links, status dot indicator, copyright bar. | External company and legal links use static anchors without live backend mutations. | `MarketingFooter.tsx`, `module-127388.js` |
 
+---
+
+## 6. Signed-In Application Reconstruction
+
+### 6.1 REA Pipeline Execution & Ground Truth Evidence
+* **REA Web Inspection**: Executed `rea inspect-web-page http://127.0.0.1:9222 4D5803D83D1C78981FF3E408A2F4B2D5 --allowed-origins https://replit.com --allowed-origins https://cdn.replit.com --include-accessibility-text --include-json-body-shapes --include-script-sources --format json` producing 26.5 MB Evidence (`work/captures/signed_in_page_capture.json`).
+* **REA Script Export**: Executed `rea export-web-scripts` extracting 250 authentic client bundles into `work/exported-scripts-signed-in/`.
+* **Identified Source Chunks**:
+  - `1pd8uc2jcsju7.js` (90 KB): Home dashboard greeting heading, agent prompt input card, and prompt suggestions (`HomeChatSuggestions`).
+  - `09xqxj37gk4v0.js` (39 KB) & `2x1pn1luaxefb.js` (292 KB): Global sidebar navigation, personal workspace switcher, recent projects list, Pro upgrade card.
+  - `0xnf1cnd6e4n9.js` (32 KB) & `3kfs8h3w837w1.js` (42 KB): Dark theme tokens (`replit-ui-theme-root`, `#1E1E1F` body background, `colorScheme: dark`, text `#E9EAEA`).
+* **Zero Live Server Calls & Privacy Enforcement**: All remote API requests blocked; user and project data sanitized to neutral fixtures (`Alex Builder`, `DemoProject`, `CommerceApp`, etc.). Live snapshots stored exclusively in `work/analysis/signed_in/` and ignored in git.
+
+### 6.2 Screen Implementation Summary
+1. **Home / Dashboard (`HomeDashboard.tsx`)**: Recent projects horizontal row, user greeting ("Alex, what are we working on today?"), suggested prompt pills with shuffle button, glassmorphism Agent input card with "Did you know?" notice box, attachment button, output mode, and prompt submission.
+2. **Projects List (`ProjectsList.tsx`)**: Search filter input, "Projects" vs "Assets" tabs, project cards with language badges, and actions menu with local deletion.
+3. **Create App Modal (`CreateAppModal.tsx`)**: Template picker (Python Flask, React + Vite, Node.js Express, HTML/CSS), project name input, public/private toggle, and local project creation into state.
+4. **Workspace (`Workspace.tsx`)**: Top bar (Back, project title, Run/Stop button, Deploy button, drawer toggles), collapsible file tree with create file prompt, multi-tab code editor with line numbers and live editable textarea, console/shell terminal with simulated execution logs, right drawer (Agent Chat with canned replies, Preview webview, Secrets environment manager, Deploy status).
+5. **Account & Usage Settings (`SettingsModal.tsx`)**: Account settings (name, username, email), Usage & Billing (Agent credits progress bar, Plan status), Appearance (Replit Dark / Warm Light selector).
+6. **Deployments View (`DeploymentsView.tsx`)**: Production deployment services with status badges (`Running`, `Ready`), compute specs, and project links.
+7. **Teams View (`TeamsView.tsx`)**: Team member roster, roles (`Member`, `Admin`), and colleague invitation form.
+8. **Integrations View (`IntegrationsView.tsx`)**: Third-party integration cards (GitHub, Neon, Supabase, Stripe) with connect/disconnect toggle state.
+
+### 6.3 Signed-In Behavior Matrix (Real vs Visual-Only)
+| Feature | Real Local Behavior | Visual-Only Behavior |
+| :--- | :--- | :--- |
+| **Project Navigation** | Clicking project cards in sidebar, home grid, or library opens project in the Workspace editor with active file and open tabs. | Does not fetch remote project files from Replit backend. |
+| **File Tree & Tabs** | Switching files, clicking tabs, closing tabs, and adding new files updates local project state dynamically. | Does not persist to remote git remotes or cloud disks. |
+| **Code Editor** | Live text editing in editor textarea with active tab state and line numbers. | Does not run Language Server Protocol (LSP) or cloud linters. |
+| **Run / Stop & Console** | Clicking "Run" changes status to running, outputs execution start logs in Console, and allows typing interactive shell commands. | Simulated execution in local state; does not spawn remote Docker/Nix containers. |
+| **Agent Chat Panel** | Typing prompt and pressing Enter sends user message and triggers canned Agent responses tailored to prompt keywords (landing, api, database, bug). | Does not invoke OpenAI / Anthropic cloud API models. |
+| **Project Creation & Deletion** | "New Project" modal adds new project item to state; Actions menu allows deleting project locally. | Never deletes or mutates anything on live Replit account. |
+| **Secrets Manager** | Adding key/value pairs in Workspace secrets tab updates local secrets list in state. | Does not write to Replit production cloud vault. |
+| **Integrations Connect** | Clicking Connect/Disconnect toggles integration state locally. | Does not invoke third-party OAuth flows or API tokens. |
+
+### 6.4 REA Screenshot Comparison Output
+* **REA Tool**: `rea capture-web-screenshot` & `rea compare-web-screenshots`
+* **Live Artifact**: `rea_live_dashboard_artifact.json` (SHA: `e0d8d4944b03eeedfd028578c8a6b34375241b111055d323b97d93bda7485833`)
+* **Recon Artifact**: `rea_recon_dashboard_artifact.json` (SHA: `708f7ea4ae2e84492e2f8cc431a838f83440662a14b96ee1f3de90d2db68f76f`)
+* **Metrics**:
+  - Total Compared Pixels: `1,101,600`
+  - Mean Absolute Channel Delta: **`12.24`**
+  - Channel Threshold 10 Changed Ratio: **`0.3328`**
+
+

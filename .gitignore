@@ -8,7 +8,9 @@ build/
 work/target_artifacts/
 work/captures/
 work/exported-scripts/
+work/exported-scripts-signed-in/
 work/recovered-chunks/
+work/recovered-signed-in/
 work/recovered-modules-combined/
 rea/
 
@@ -16,7 +18,11 @@ rea/
 work/analysis/*.html
 work/analysis/*.png
 work/analysis/compare/*.png
+work/analysis/signed_in/
+work/signed_in/
 *.png
+*.snap.json
+*live*.json
 
 # Logs and system generated
 .system_generated/

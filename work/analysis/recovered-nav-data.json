@@ -1,0 +1,642 @@
+{
+  "footer": {
+    "navigation": [
+      {
+        "_key": "f4820d7ef091",
+        "_type": "linkList",
+        "links": [
+          {
+            "_key": "0e5f79c9c64f",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "link": "https://replit.com/about",
+            "linkType": "external",
+            "openInNewTab": true,
+            "text": "About us"
+          },
+          {
+            "_key": "bb1b7f4e431f",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "link": "https://blog.replit.com/what-is-vibe-coding",
+            "linkType": "external",
+            "openInNewTab": false,
+            "text": "Vibe Coding 101"
+          },
+          {
+            "_key": "37ac7ae6e695",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "internalLink": "/help",
+            "linkType": "internal",
+            "text": "Help"
+          },
+          {
+            "_key": "dd839448f42b",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "link": "https://replit.com/build",
+            "linkType": "external",
+            "openInNewTab": true,
+            "text": "How to guides"
+          },
+          {
+            "_key": "9e70e4803303",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "internalLink": "/github",
+            "linkType": "internal",
+            "text": "Import from GitHub"
+          },
+          {
+            "_key": "ea51ab22aa81",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "link": "https://status.replit.com/",
+            "linkType": "external",
+            "text": "Status"
+          },
+          {
+            "_key": "403a9b140af55c14b032d9917f5dea5d",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "link": "https://replit.com/additional-resources",
+            "linkType": "external",
+            "openInNewTab": true,
+            "text": "Additional resources"
+          },
+          {
+            "_key": "1953a1a0a073",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "internalLink": "/brandkit",
+            "linkType": "internal",
+            "text": "Brand kit"
+          },
+          {
+            "_key": "56f59afca188",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "internalLink": "/partners/certifications",
+            "linkType": "internal",
+            "text": "Certifications"
+          },
+          {
+            "_key": "e20af8300111",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "internalLink": "/partners",
+            "link": "https://replit.com/partner-with-us",
+            "linkType": "internal",
+            "openInNewTab": false,
+            "text": "Partnerships"
+          }
+        ],
+        "title": "Handy Links"
+      },
+      {
+        "_key": "6e050d62c1ca",
+        "_type": "linkList",
+        "links": [
+          {
+            "_key": "cc03d499d6af",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "internalLink": "/terms-of-service",
+            "linkType": "internal-next",
+            "text": "Terms of service"
+          },
+          {
+            "_key": "4955d57b79fc",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "internalLink": "/commercial-agreement",
+            "linkType": "internal",
+            "text": "Commercial agreement"
+          },
+          {
+            "_key": "1126011372d5",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "internalLink": "/privacy-policy",
+            "linkType": "internal-next",
+            "text": "Privacy"
+          },
+          {
+            "_key": "63a3bc22b37c",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "internalLink": "/subprocessors",
+            "linkType": "internal",
+            "text": "Subprocessors"
+          },
+          {
+            "_key": "cd03d7f8c385",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "internalLink": "/dpa",
+            "linkType": "internal",
+            "text": "DPA"
+          },
+          {
+            "_key": "f18b16194d2b",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "link": "https://docs.replit.com/legal-and-security-info/abuse-report",
+            "linkType": "external",
+            "text": "Report abuse"
+          }
+        ],
+        "title": "Legal"
+      },
+      {
+        "_key": "051a32a74b1d",
+        "_type": "linkList",
+        "links": [
+          {
+            "_key": "48449f3a2dc1",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "link": "https://twitter.com/replit",
+            "linkType": "external",
+            "openInNewTab": true,
+            "text": "X / Twitter"
+          },
+          {
+            "_key": "6e710c317ee7",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "link": "https://www.tiktok.com/@replit",
+            "linkType": "external",
+            "openInNewTab": true,
+            "text": "Tiktok"
+          },
+          {
+            "_key": "833839aea2d3",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "link": "https://facebook.com/repl.it",
+            "linkType": "external",
+            "openInNewTab": true,
+            "text": "Facebook"
+          },
+          {
+            "_key": "96a03267146a",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "link": "https://instagram.com/repl.it",
+            "linkType": "external",
+            "openInNewTab": true,
+            "text": "Instagram"
+          },
+          {
+            "_key": "32d5bb5019d9",
+            "_type": "annotationLink",
+            "buttonStyle": "none",
+            "link": "https://www.linkedin.com/company/repl-it",
+            "linkType": "external",
+            "openInNewTab": true,
+            "text": "Linkedin"
+          }
+        ],
+        "title": "Connect"
+      }
+    ]
+  },
+  "header": {
+    "primaryNavigation": [
+      {
+        "_key": "d7e540c5b986",
+        "_type": "megaMenu",
+        "linkGroups": [
+          {
+            "_key": "fd990a6e9494",
+            "_type": "linkList",
+            "links": [
+              {
+                "_key": "014abf71eb3b",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/design",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Design"
+              },
+              {
+                "_key": "290cb52dd52a",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/products/deployments",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Apps & Websites"
+              },
+              {
+                "_key": "3b12a86531ef",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/slides",
+                "link": null,
+                "linkType": "internal",
+                "openInNewTab": null,
+                "text": "Slides"
+              }
+            ],
+            "title": "CREATE"
+          },
+          {
+            "_key": "bb183e620cac",
+            "_type": "linkList",
+            "links": [
+              {
+                "_key": "b2e336a1eb6f",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/products/agent",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Agents"
+              },
+              {
+                "_key": "254c898e9860",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/products/database",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Databases"
+              },
+              {
+                "_key": "a2e63e955383",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/integrations",
+                "link": null,
+                "linkType": "internal",
+                "openInNewTab": null,
+                "text": "Integrations"
+              },
+              {
+                "_key": "ba5c1d33e12d",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/security",
+                "link": null,
+                "linkType": "internal",
+                "openInNewTab": null,
+                "text": "Security"
+              }
+            ],
+            "title": "PLATFORM"
+          }
+        ],
+        "megaMenuFooterLinks": null,
+        "promotedSection": null,
+        "title": "Products"
+      },
+      {
+        "_key": "00b55aa0ebe3",
+        "_type": "megaMenu",
+        "linkGroups": [
+          {
+            "_key": "33b68053611e",
+            "_type": "linkList",
+            "links": [
+              {
+                "_key": "5b6931b1f36b",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/usecases/founders",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Founders"
+              },
+              {
+                "_key": "679a3a19e1c1",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/usecases/product-managers",
+                "link": "https://replit.com/mobile-apps",
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Product Managers"
+              },
+              {
+                "_key": "702937c71fab",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/usecases/designers",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Designers"
+              },
+              {
+                "_key": "4626bfb128f1",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/usecases/software-engineers",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Engineers"
+              },
+              {
+                "_key": "7429517925fa",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/usecases/operations",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Operations"
+              },
+              {
+                "_key": "cc0613d7daf5",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/usecases/it",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "IT"
+              }
+            ],
+            "title": "BY ROLE"
+          },
+          {
+            "_key": "e7e3a13aba77",
+            "_type": "linkList",
+            "links": [
+              {
+                "_key": "0a19910ed789",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/usecases/ai-app-builder",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Apps"
+              },
+              {
+                "_key": "8d0739927bdf",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/usecases/ai-website-builder",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Websites"
+              },
+              {
+                "_key": "3b5b5e00c50d",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/usecases/landing-page-builder",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Landing Pages"
+              },
+              {
+                "_key": "c3657662af0f",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/usecases/dashboards-data-visualization",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Dashboards"
+              },
+              {
+                "_key": "3127eaac7268",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/usecases/rapid-prototyping",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Prototypes"
+              },
+              {
+                "_key": "4594192b4c67",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/usecases/chatbot-builder",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Chatbots"
+              }
+            ],
+            "title": "BY USE CASE"
+          }
+        ],
+        "megaMenuFooterLinks": null,
+        "promotedSection": null,
+        "title": "Solutions"
+      },
+      {
+        "_key": "b51e1359174b",
+        "_type": "annotationLink",
+        "buttonBackgroundColor": null,
+        "buttonHoverBackgroundColor": null,
+        "buttonStyle": "none",
+        "buttonTextColor": null,
+        "internalLink": "/pricing",
+        "link": "https://replit.com/pricing",
+        "linkType": "internal-next",
+        "openInNewTab": null,
+        "text": "Pricing"
+      },
+      {
+        "_key": "64f0b01c80a2",
+        "_type": "annotationLink",
+        "buttonBackgroundColor": null,
+        "buttonHoverBackgroundColor": null,
+        "buttonStyle": "none",
+        "buttonTextColor": null,
+        "internalLink": "/enterprise",
+        "link": null,
+        "linkType": "internal",
+        "openInNewTab": null,
+        "text": "Enterprise"
+      },
+      {
+        "_key": "20e7c4f7ecfe",
+        "_type": "megaMenu",
+        "linkGroups": [
+          {
+            "_key": "05ac3bba5ca3",
+            "_type": "linkList",
+            "links": [
+              {
+                "_key": "895fdb8f07ee",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/usecases/design",
+                "link": "https://docs.replit.com/getting-started/intro-replit",
+                "linkType": "external",
+                "openInNewTab": false,
+                "text": "Docs"
+              },
+              {
+                "_key": "351418f02dc5",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/community",
+                "link": null,
+                "linkType": "internal",
+                "openInNewTab": null,
+                "text": "Community"
+              },
+              {
+                "_key": "3d515273a6d1",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/help",
+                "link": null,
+                "linkType": "internal",
+                "openInNewTab": null,
+                "text": "Support"
+              },
+              {
+                "_key": "a1a8336fb429",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": null,
+                "link": "https://contra.com/replit",
+                "linkType": "external",
+                "openInNewTab": null,
+                "text": "Replit Experts"
+              },
+              {
+                "_key": "3a3301cbac0b",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/partners",
+                "link": null,
+                "linkType": "internal",
+                "openInNewTab": null,
+                "text": "Partners"
+              }
+            ],
+            "title": "LEARN & SUPPORT"
+          },
+          {
+            "_key": "48159d593d2a",
+            "_type": "linkList",
+            "links": [
+              {
+                "_key": "083610e04578",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/customers",
+                "link": "https://replit.com/customers",
+                "linkType": "internal",
+                "openInNewTab": false,
+                "text": "Customer Stories"
+              },
+              {
+                "_key": "8e0c52ae5dc0",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/gallery",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Gallery"
+              },
+              {
+                "_key": "6879ec151c1a",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/blog",
+                "link": "https://blog.replit.com/",
+                "linkType": "external",
+                "openInNewTab": false,
+                "text": "Blog"
+              },
+              {
+                "_key": "cfc19b1f94f0",
+                "_type": "annotationLinkWithoutStyle",
+                "internalLink": "/news",
+                "link": null,
+                "linkType": "internal-next",
+                "openInNewTab": null,
+                "text": "Newsroom"
+              }
+            ],
+            "title": "DISCOVER"
+          }
+        ],
+        "megaMenuFooterLinks": null,
+        "promotedSection": null,
+        "title": "Resources"
+      }
+    ],
+    "secondaryNavigation": [
+      {
+        "_key": "b7709694fa6b",
+        "_type": "annotationLink",
+        "buttonBackgroundColor": null,
+        "buttonHoverBackgroundColor": null,
+        "buttonStyle": "none",
+        "buttonTextColor": null,
+        "internalLink": null,
+        "link": "https://replit.com/enterprise",
+        "linkType": "external",
+        "openInNewTab": null,
+        "text": "Contact sales"
+      }
+    ]
+  },
+  "promo": {
+    "enablePromo": false,
+    "promoText": [
+      {
+        "_key": "21bac92fc5a5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "17075379d7bb",
+            "_type": "span",
+            "marks": [],
+            "text": "Give "
+          },
+          {
+            "_key": "ded0183e7dc5",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "1 month of Replit Core"
+          },
+          {
+            "_key": "12c00f9ddde4",
+            "_type": "span",
+            "marks": [],
+            "text": " to the innovators, builders, and dreamers in your life. When they redeem, you get "
+          },
+          {
+            "_key": "f205279a12c1",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "a "
+          },
+          {
+            "_key": "d7ee2d3dd626",
+            "_type": "span",
+            "marks": [
+              "strong",
+              "24b5e6d4d8e4"
+            ],
+            "text": "free month of Core"
+          },
+          {
+            "_key": "7c364938fc42",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": " or $20 in credits"
+          },
+          {
+            "_key": "63e7e7ebe355",
+            "_type": "span",
+            "marks": [],
+            "text": " too. "
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "24b5e6d4d8e4",
+            "_type": "link",
+            "href": "https://replit.com/womensday"
+          }
+        ],
+        "style": "normal"
+      }
+    ]
+  }
+}

@@ -1,0 +1,2 @@
+:root{--StaggerView--index:0;--StaggerView--animation-duration:.5s;--StaggerView--animation-delay:.1s;--StaggerView--distance:20px}@keyframes StaggerView-module__x5Qtna__fade-in-up{0%{transform:translateY(var(--StaggerView--distance));opacity:0}to{opacity:1;transform:translateY(0)}}@layer css-modules{.StaggerView-module__x5Qtna__stagger{animation:StaggerView-module__x5Qtna__fade-in-up var(--StaggerView--animation-duration) ease-out forwards;animation-delay:calc(var(--StaggerView--index) * var(--StaggerView--animation-delay))}}
+/*# sourceMappingURL=10h67unbc594n.css.map*/

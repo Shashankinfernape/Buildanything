@@ -1,0 +1,23 @@
+# Node and build outputs
+node_modules/
+dist/
+build/
+.cache/
+
+# Large decompiled and raw dumps
+work/target_artifacts/
+work/captures/
+work/exported-scripts/
+work/recovered-chunks/
+work/recovered-modules-combined/
+rea/
+
+# Live DOM snapshots and screenshots (kept locally per privacy rules)
+work/analysis/*.html
+work/analysis/*.png
+work/analysis/compare/*.png
+*.png
+
+# Logs and system generated
+.system_generated/
+*.log

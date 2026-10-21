@@ -1,0 +1,95 @@
+[
+  {
+    "dropdown": "Products",
+    "panelBox": {
+      "x": 286,
+      "y": 66,
+      "width": 522,
+      "height": 221
+    },
+    "diff": {
+      "before": {
+        "width": 522,
+        "height": 221
+      },
+      "after": {
+        "width": 522,
+        "height": 221
+      },
+      "channel_threshold": 1,
+      "limitations": [
+        "Pixel comparison does not perform OCR, semantic layout analysis, or perceptual color correction.",
+        "Only non-interlaced 8-bit RGB and RGBA PNG screenshots are accepted.",
+        "PNG tRNS transparency is accepted only as a six-byte RGB color key; tRNS on RGBA or with another length is rejected."
+      ],
+      "status": "different",
+      "compared_pixels": 115362,
+      "changed_pixels": 3719,
+      "changed_ratio": 0.0322376519131083,
+      "maximum_channel_delta": 205,
+      "mean_absolute_channel_delta": 1.2497572857613426
+    }
+  },
+  {
+    "dropdown": "Solutions",
+    "panelBox": {
+      "x": 397,
+      "y": 66,
+      "width": 522,
+      "height": 297
+    },
+    "diff": {
+      "before": {
+        "width": 522,
+        "height": 297
+      },
+      "after": {
+        "width": 522,
+        "height": 297
+      },
+      "channel_threshold": 1,
+      "limitations": [
+        "Pixel comparison does not perform OCR, semantic layout analysis, or perceptual color correction.",
+        "Only non-interlaced 8-bit RGB and RGBA PNG screenshots are accepted.",
+        "PNG tRNS transparency is accepted only as a six-byte RGB color key; tRNS on RGBA or with another length is rejected."
+      ],
+      "status": "different",
+      "compared_pixels": 155034,
+      "changed_pixels": 6020,
+      "changed_ratio": 0.038830192086897065,
+      "maximum_channel_delta": 205,
+      "mean_absolute_channel_delta": 1.533611981887844
+    }
+  },
+  {
+    "dropdown": "Resources",
+    "panelBox": {
+      "x": 690,
+      "y": 66,
+      "width": 522,
+      "height": 259
+    },
+    "diff": {
+      "before": {
+        "width": 522,
+        "height": 259
+      },
+      "after": {
+        "width": 522,
+        "height": 259
+      },
+      "channel_threshold": 1,
+      "limitations": [
+        "Pixel comparison does not perform OCR, semantic layout analysis, or perceptual color correction.",
+        "Only non-interlaced 8-bit RGB and RGBA PNG screenshots are accepted.",
+        "PNG tRNS transparency is accepted only as a six-byte RGB color key; tRNS on RGBA or with another length is rejected."
+      ],
+      "status": "different",
+      "compared_pixels": 135198,
+      "changed_pixels": 4810,
+      "changed_ratio": 0.03557744937055282,
+      "maximum_channel_delta": 205,
+      "mean_absolute_channel_delta": 1.3661851506679092
+    }
+  }
+]

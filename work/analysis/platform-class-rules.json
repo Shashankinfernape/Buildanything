@@ -1,0 +1,748 @@
+{
+  "total": 148,
+  "coveredCount": 148,
+  "uncoveredCount": 0,
+  "covered": {
+    "Icon-module__wMmReq__icon": {
+      "file": "3gc71r1qd881c.css",
+      "offset": 231,
+      "snippet": ".Icon-module__wMmReq__icon{--Icon--size:16px;--Icon--rotate:0deg;vertical-align:}"
+    },
+    "PlatformCards-module__Z0omxa__agentChatCursor": {
+      "file": "3gc71r1qd881c.css",
+      "offset": 60545,
+      "snippet": ".PlatformCards-module__Z0omxa__agentChatCursor{animation:1s step-end infinite Pl}"
+    },
+    "[@media_(width_>=_768px)]:block": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 695263,
+      "snippet": ".\\[\\@media_\\(width_\\>\\=_768px\\)\\]\\:block{display:block}"
+    },
+    "[@media_(width_>=_768px)]:hidden": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 695318,
+      "snippet": ".\\[\\@media_\\(width_\\>\\=_768px\\)\\]\\:hidden{display:none}"
+    },
+    "[@media_screen_and_(width<=768px)]:px-400": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 713266,
+      "snippet": ".\\[\\@media_screen_and_\\(width\\<\\=768px\\)\\]\\:px-400{padding-inline:16px}"
+    },
+    "[[data-rui-diagnostics]_&:not([data-ruic])]:[outline:2px_solid_var(--accent-negative-default)]!": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 775573,
+      "snippet": ".\\[\\[data-rui-diagnostics\\]_\\&\\:not\\(\\[data-ruic\\]\\)\\]\\:\\[outline\\:2px_solid_var}"
+    },
+    "[[data-rui-diagnostics]_&:not([data-ruic])]:outline-offset-2!": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 775786,
+      "snippet": ".\\[\\[data-rui-diagnostics\\]_\\&\\:not\\(\\[data-ruic\\]\\)\\]\\:outline-offset-2\\!:not([}"
+    },
+    "[backdrop-filter:blur(17px)]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 248657,
+      "snippet": ".\\[backdrop-filter\\:blur\\(17px\\)\\]{-webkit-backdrop-filter:blur(17px);backdrop-f}"
+    },
+    "[backdrop-filter:blur(7px)]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 248466,
+      "snippet": ".\\[backdrop-filter\\:blur\\(7px\\)\\]{-webkit-backdrop-filter:blur(7px);backdrop-fil}"
+    },
+    "[background:#ff3c00]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 273979,
+      "snippet": ".\\[background\\:\\#ff3c00\\]{background:#ff3c00}"
+    },
+    "[background:white]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 291736,
+      "snippet": ".\\[background\\:white\\]{background:#fff}"
+    },
+    "_sdz_custom-hover:shades-up-2": {
+      "file": "2crx7tcomwfu9.css",
+      "offset": 582202,
+      "snippet": "._sdz_custom-hover\\:shades-up-2:hover:not(:disabled,[aria-disabled=true]),._sdz_}"
+    },
+    "_sdz_custom-pressed:shades-up-3": {
+      "file": "2crx7tcomwfu9.css",
+      "offset": 72668,
+      "snippet": "._sdz_custom-pressed\\:shades-up-3:is(:is([data-rac],[data-react-aria-pressable])}"
+    },
+    "_sdz_surface-2": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 440474,
+      "snippet": "._sdz_surface-2,:hover,:active,[data-pressed=true],[aria-expanded=true]){backgro}"
+    },
+    "_sdz_switch-theme": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 440441,
+      "snippet": "._sdz_switch-theme,._sdz_surface,._sdz_surface-2,:hover,:active,[data-pressed=tr}"
+    },
+    "_sdz_theme-brand-inverted": {
+      "file": "2crx7tcomwfu9.css",
+      "offset": 207520,
+      "snippet": "._sdz_theme-brand-inverted,._sdz_custom-pressed\\:theme-brand-inverted:is(:is([da}"
+    },
+    "absolute": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 4458,
+      "snippet": ".absolute{position:absolute}"
+    },
+    "aria-disabled:cursor-not-allowed": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 363146,
+      "snippet": ".aria-disabled\\:cursor-not-allowed[aria-disabled=true]{cursor:not-allowed}"
+    },
+    "aria-disabled:opacity-50": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 363220,
+      "snippet": ".aria-disabled\\:opacity-50[aria-disabled=true]{opacity:.5}"
+    },
+    "aspect-[290/260]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 25639,
+      "snippet": ".aspect-\\[290\\/260\\]{aspect-ratio:290/260}"
+    },
+    "aspect-[362/272]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 25770,
+      "snippet": ".aspect-\\[362\\/272\\]{aspect-ratio:362/272}"
+    },
+    "basis-full": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 76329,
+      "snippet": ".basis-full{flex-basis:100%}"
+    },
+    "bg-[#dbd4cf]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 140420,
+      "snippet": ".bg-\\[\\#dbd4cf\\]{background-color:#dbd4cf}"
+    },
+    "bg-[#ff764d]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 140798,
+      "snippet": ".bg-\\[\\#ff764d\\]{background-color:#ff764d}"
+    },
+    "bg-[#ffb199]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 140840,
+      "snippet": ".bg-\\[\\#ffb199\\]{background-color:#ffb199}"
+    },
+    "bg-[hsl(14deg_100%_50%_/_100%)]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 153594,
+      "snippet": ".bg-\\[hsl\\(14deg_100\\%_50\\%_\\/_100\\%\\)\\]{background-color:#ff3c00}"
+    },
+    "bg-[hsl(30deg_7%_82%_/_100%)]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 153854,
+      "snippet": ".bg-\\[hsl\\(30deg_7\\%_82\\%_\\/_100\\%\\)\\]{background-color:#d4d1ce}"
+    },
+    "bg-[white]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 155740,
+      "snippet": ".bg-\\[white\\]{background-color:#fff}"
+    },
+    "bg-surface": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 155855,
+      "snippet": ".bg-surface,.bg-surface\\/85{background-color:var(--surface-color)}"
+    },
+    "block": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 24194,
+      "snippet": ".block{display:block}"
+    },
+    "border": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 76444,
+      "snippet": ".border-collapse{border-collapse:collapse}"
+    },
+    "border-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 114906,
+      "snippet": ".border-0{border-style:var(--tw-border-style);border-width:0}"
+    },
+    "border-[#191818]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 124714,
+      "snippet": ".border-\\[\\#191818\\]{border-color:#191818}"
+    },
+    "border-[#ff3c00]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 125008,
+      "snippet": ".border-\\[\\#ff3c00\\]{border-color:#ff3c00}"
+    },
+    "border-[length:1.5px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 115195,
+      "snippet": ".border-\\[length\\:1\\.5px\\]{border-style:var(--tw-border-style);border-width:1.5p}"
+    },
+    "border-dashed": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 118823,
+      "snippet": ".border-dashed{--tw-border-style:dashed;border-style:dashed}"
+    },
+    "border-image-none": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 313205,
+      "snippet": ".border-image-none{border-image:}"
+    },
+    "border-l": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 118266,
+      "snippet": ".border-l{border-left-style:var(--tw-border-style);border-left-width:1px}"
+    },
+    "border-solid": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 119073,
+      "snippet": ".border-solid{--tw-border-style:solid;border-style:solid}"
+    },
+    "bottom-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 10535,
+      "snippet": ".bottom-0{bottom:0}"
+    },
+    "box-border": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 23332,
+      "snippet": ".box-border{box-sizing:border-box}"
+    },
+    "capitalize": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 213384,
+      "snippet": ".capitalize{text-transform:capitalize}"
+    },
+    "custom-focus-not-focus-visible:outline-transparent": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 408943,
+      "snippet": ".custom-focus-not-focus-visible\\:outline-transparent:not([disabled],[aria-disabl}"
+    },
+    "custom-focus-visible-active:outline-accent-primary-default": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 410090,
+      "snippet": ".custom-focus-visible-active\\:outline-accent-primary-default:not([disabled],[ari}"
+    },
+    "custom-focus-visible-active:transition-none": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 411868,
+      "snippet": ".custom-focus-visible-active\\:transition-none:not([disabled],[aria-disabled=true}"
+    },
+    "custom-focus:-outline-offset-2": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 414078,
+      "snippet": ".custom-focus\\:-outline-offset-2:not([disabled],[aria-disabled=true]):focus-visi}"
+    },
+    "custom-focus:outline-2": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 413866,
+      "snippet": ".custom-focus\\:outline-2:not([disabled],[aria-disabled=true]):focus-visible,.cus}"
+    },
+    "custom-focus:outline-accent-primary-default": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 414606,
+      "snippet": ".custom-focus\\:outline-accent-primary-default:not([disabled],[aria-disabled=true}"
+    },
+    "custom-focus:outline-solid": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 414869,
+      "snippet": ".custom-focus\\:outline-solid:not([disabled],[aria-disabled=true]):focus-visible{}"
+    },
+    "custom-pointer-capable:cursor-pointer": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 407931,
+      "snippet": ".custom-pointer-capable\\:cursor-pointer:not([disabled],[aria-disabled],input:not}"
+    },
+    "disabled:cursor-not-allowed": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 360612,
+      "snippet": ".disabled\\:cursor-not-allowed:disabled{cursor:not-allowed}"
+    },
+    "disabled:opacity-50": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 361325,
+      "snippet": ".disabled\\:opacity-50:disabled{opacity:.5}"
+    },
+    "duration-200": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 258422,
+      "snippet": ".duration-200{--tw-duration:.2s;transition-duration:.2s}"
+    },
+    "duration-snappy": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 259167,
+      "snippet": ".duration-snappy{--tw-duration:var(--transition-duration-snappy);transition-dura}"
+    },
+    "ease-[ease]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 260068,
+      "snippet": ".ease-\\[ease\\]{--tw-ease:ease;transition-timing-function:ease}"
+    },
+    "ease-snappy": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 260323,
+      "snippet": ".ease-snappy{--tw-ease:var(--transition-timing-function-snappy);transition-timin}"
+    },
+    "flex": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 24242,
+      "snippet": ".flex{display:flex}"
+    },
+    "flex-1": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 73914,
+      "snippet": ".flex-1{flex:1}"
+    },
+    "flex-col": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 101735,
+      "snippet": ".flex-col{flex-direction:column}"
+    },
+    "flex-row": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 101815,
+      "snippet": ".flex-row{flex-direction:row}"
+    },
+    "font-[400]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 199312,
+      "snippet": ".font-\\[400\\]{--tw-font-weight:400;font-weight:400}"
+    },
+    "font-[600]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 199618,
+      "snippet": ".font-\\[600\\]{--tw-font-weight:600;font-weight:600}"
+    },
+    "font-brand": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 191095,
+      "snippet": ".font-brand{font-family:var(--font-family-brand)}"
+    },
+    "font-inherit": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 313433,
+      "snippet": ".font-inherit{font:inherit}"
+    },
+    "gap-100": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 103597,
+      "snippet": ".gap-100{gap:4px}"
+    },
+    "gap-1200": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 103829,
+      "snippet": ".gap-1200{gap:48px}"
+    },
+    "gap-200": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 103631,
+      "snippet": ".gap-200{gap:8px}"
+    },
+    "gap-300": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 103666,
+      "snippet": ".gap-300{gap:12px}"
+    },
+    "gap-400": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 103702,
+      "snippet": ".gap-400{gap:16px}"
+    },
+    "grid": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 24290,
+      "snippet": ".grid{display:grid}"
+    },
+    "grow": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 74929,
+      "snippet": ".grow{flex-grow:1}"
+    },
+    "grow-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 75077,
+      "snippet": ".grow-0{flex-grow:0}"
+    },
+    "h-1000": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 31916,
+      "snippet": ".h-1000{height:40px}"
+    },
+    "h-300": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 31745,
+      "snippet": ".h-300{height:12px}"
+    },
+    "h-[250px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 33933,
+      "snippet": ".h-\\[250px\\]{height:250px}"
+    },
+    "h-[38px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 32748,
+      "snippet": ".h-\\[38px\\]{height:38px}"
+    },
+    "h-[41px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 32772,
+      "snippet": ".h-\\[41px\\]{height:41px}"
+    },
+    "h-[50px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 32868,
+      "snippet": ".h-\\[50px\\]{height:50px}"
+    },
+    "h-[604px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 34635,
+      "snippet": ".h-\\[604px\\]{height:604px}"
+    },
+    "h-[7px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 32384,
+      "snippet": ".h-\\[7px\\]{height:7px}"
+    },
+    "hidden": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 24309,
+      "snippet": ".hidden{display:none}"
+    },
+    "inline-block": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 24353,
+      "snippet": ".inline-block{display:inline-block}"
+    },
+    "interactive-radius-default": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 106841,
+      "snippet": ".interactive-radius-default{--interactive2-border-radius:var(--border-radius-6);}"
+    },
+    "items-center": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 102186,
+      "snippet": ".items-center{align-items:center}"
+    },
+    "items-logical-start": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 102254,
+      "snippet": ".items-logical-start{align-items:start}"
+    },
+    "items-stretch": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 102293,
+      "snippet": ".items-stretch{align-items:stretch}"
+    },
+    "justify-between": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 102373,
+      "snippet": ".justify-between{justify-content:space-between}"
+    },
+    "justify-center": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 102420,
+      "snippet": ".justify-center{justify-content:center}"
+    },
+    "justify-logical-start": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 102549,
+      "snippet": ".justify-logical-start{justify-content:start}"
+    },
+    "leading-[1.1]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 196794,
+      "snippet": ".leading-\\[1\\.1\\]{--tw-leading:1.1;line-height:1.1}"
+    },
+    "leading-none": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 198743,
+      "snippet": ".leading-none{--tw-leading:1;line-height:1}"
+    },
+    "left-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 12874,
+      "snippet": ".left-0{left:0}"
+    },
+    "left-500": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 13084,
+      "snippet": ".left-500{left:20px}"
+    },
+    "left-[45px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 13300,
+      "snippet": ".left-\\[45px\\]{left:45px}"
+    },
+    "max-w-[1380px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 67624,
+      "snippet": ".max-w-\\[1380px\\]{max-width:1380px}"
+    },
+    "max-w-[290px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 66053,
+      "snippet": ".max-w-\\[290px\\]{max-width:290px}"
+    },
+    "min-h-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 45799,
+      "snippet": ".min-h-0{min-height:0}"
+    },
+    "min-w-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 71033,
+      "snippet": ".min-w-0{min-width:0}"
+    },
+    "mx-auto": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 18563,
+      "snippet": ".mx-auto{margin-inline:auto}"
+    },
+    "my-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 18701,
+      "snippet": ".my-0{margin-block:0}"
+    },
+    "overflow-clip": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 105900,
+      "snippet": ".overflow-clip{overflow:clip}"
+    },
+    "overflow-hidden": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 105929,
+      "snippet": ".overflow-hidden{overflow:hidden}"
+    },
+    "overflow-x-hidden": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 106096,
+      "snippet": ".overflow-x-hidden{overflow-x:hidden}"
+    },
+    "p-600": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 172720,
+      "snippet": ".p-600{padding:24px}"
+    },
+    "p-800": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 172740,
+      "snippet": ".p-800{padding:32px}"
+    },
+    "pt-[120px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 177290,
+      "snippet": ".pt-\\[120px\\]{padding-top:120px}"
+    },
+    "px-200": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 173626,
+      "snippet": ".px-200{padding-inline:8px}"
+    },
+    "px-250": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 173653,
+      "snippet": ".px-250{padding-inline:10px}"
+    },
+    "px-300": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 173681,
+      "snippet": ".px-300{padding-inline:12px}"
+    },
+    "px-400": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 173737,
+      "snippet": ".px-400{padding-inline:16px}"
+    },
+    "py-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 174830,
+      "snippet": ".py-0{padding-block:0}"
+    },
+    "py-200": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 174954,
+      "snippet": ".py-200{padding-block:8px}"
+    },
+    "relative": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 4508,
+      "snippet": ".relative{position:relative}"
+    },
+    "right-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 8882,
+      "snippet": ".right-0{right:0}"
+    },
+    "rounded-6": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 108991,
+      "snippet": ".rounded-6{border-radius:6px}"
+    },
+    "rounded-[20px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 110202,
+      "snippet": ".rounded-\\[20px\\]{border-radius:20px}"
+    },
+    "rounded-[50%]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 110498,
+      "snippet": ".rounded-\\[50\\%\\]{border-radius:50%}"
+    },
+    "rounded-[7px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 109880,
+      "snippet": ".rounded-\\[7px\\]{border-radius:7px}"
+    },
+    "shrink-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 74867,
+      "snippet": ".shrink-0{flex-shrink:0}"
+    },
+    "tablet-max:grid-cols-[repeat(4,_1fr)]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 396492,
+      "snippet": ".tablet-max\\:grid-cols-\\[repeat\\(4\\,_1fr\\)\\]{grid-template-columns:repeat(4,1fr)}"
+    },
+    "tablet-min:grid-cols-[repeat(2,_1fr)]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 394847,
+      "snippet": ".tablet-min\\:grid-cols-\\[repeat\\(2\\,_1fr\\)\\]{grid-template-columns:repeat(2,1fr)}"
+    },
+    "text-[#191818]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 209995,
+      "snippet": ".text-\\[\\#191818\\]{color:#191818}"
+    },
+    "text-[#312e2e]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 209698,
+      "snippet": ".text-\\[\\#312e2e\\]{color:#312e2e}"
+    },
+    "text-[length:10.4px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 194118,
+      "snippet": ".text-\\[length\\:10\\.4px\\]{font-size:10.4px}"
+    },
+    "text-[length:16px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 194389,
+      "snippet": ".text-\\[length\\:16px\\]{font-size:16px}"
+    },
+    "text-[length:18px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 194465,
+      "snippet": ".text-\\[length\\:18px\\]{font-size:18px}"
+    },
+    "text-[length:32px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 194617,
+      "snippet": ".text-\\[length\\:32px\\]{font-size:32px}"
+    },
+    "text-[length:48px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 194693,
+      "snippet": ".text-\\[length\\:48px\\]{font-size:48px}"
+    },
+    "text-[white]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 213085,
+      "snippet": ".text-\\[white\\]{color:#fff}"
+    },
+    "text-center": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 187253,
+      "snippet": ".text-center{text-align:center}"
+    },
+    "text-color-default": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 213112,
+      "snippet": ".text-color-default{color:var(--text-color)}"
+    },
+    "top-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 6956,
+      "snippet": ".top-0{top:0}"
+    },
+    "top-[112px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 7574,
+      "snippet": ".top-\\[112px\\]{top:112px}"
+    },
+    "top-[3px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 7328,
+      "snippet": ".top-\\[3px\\]{top:3px}"
+    },
+    "tracking-[-0.02em]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 200817,
+      "snippet": ".tracking-\\[-0\\.02em\\]{--tw-tracking:-.02em;letter-spacing:-.02em}"
+    },
+    "tracking-[-0.03em]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 200883,
+      "snippet": ".tracking-\\[-0\\.03em\\]{--tw-tracking:-.03em;letter-spacing:-.03em}"
+    },
+    "tracking-[-0.04em]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 200949,
+      "snippet": ".tracking-\\[-0\\.04em\\]{--tw-tracking:-.04em;letter-spacing:-.04em}"
+    },
+    "tracking-[-0.06em]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 201084,
+      "snippet": ".tracking-\\[-0\\.06em\\]{--tw-tracking:-.06em;letter-spacing:-.06em}"
+    },
+    "transition-[background]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 250919,
+      "snippet": ".transition-\\[background\\]{transition-property:background;transition-timing-func}"
+    },
+    "transition-background": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 256155,
+      "snippet": ".transition-background-color{transition-property:background-color;transition-tim}"
+    },
+    "view-outline-none": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 240682,
+      "snippet": ".view-outline-none{outline:none}"
+    },
+    "w-1000": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 54615,
+      "snippet": ".w-1000{width:40px}"
+    },
+    "w-[162px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 56584,
+      "snippet": ".w-\\[162px\\]{width:162px}"
+    },
+    "w-[250px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 56918,
+      "snippet": ".w-\\[250px\\]{width:250px}"
+    },
+    "w-[7px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 55094,
+      "snippet": ".w-\\[7px\\]{width:7px}"
+    },
+    "w-[88px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 56020,
+      "snippet": ".w-\\[88px\\]{width:88px}"
+    },
+    "w-[89px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 56043,
+      "snippet": ".w-\\[89px\\]{width:89px}"
+    },
+    "w-full": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 63886,
+      "snippet": ".w-full{width:100%}"
+    }
+  },
+  "uncovered": []
+}

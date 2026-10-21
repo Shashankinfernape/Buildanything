@@ -1,0 +1,663 @@
+{
+  "total": 131,
+  "coveredCount": 131,
+  "uncoveredCount": 0,
+  "covered": {
+    "[&>div]:max-w-[1380px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 591232,
+      "snippet": ".\\[\\&\\>div\\]\\:max-w-\\[1380px\\]>div{max-width:1380px}"
+    },
+    "[--design-page-bg:#f3f2ee]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 267690,
+      "snippet": ".\\[--design-page-bg\\:\\#f3f2ee\\]{--design-page-bg:#f3f2ee}"
+    },
+    "[@media_screen_and_(width<=768px)]:pb-[56px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 713539,
+      "snippet": ".\\[\\@media_screen_and_\\(width\\<\\=768px\\)\\]\\:pb-\\[56px\\]{padding-bottom:56px}"
+    },
+    "[@media_screen_and_(width<=768px)]:pt-1600": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 713470,
+      "snippet": ".\\[\\@media_screen_and_\\(width\\<\\=768px\\)\\]\\:pt-1600{padding-top:64px}"
+    },
+    "[@media_screen_and_(width_<=_640px)]:leading-[34px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 700864,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\<\\=_640px\\)\\]\\:leading-\\[34px\\]{--tw-leading:34px}"
+    },
+    "[@media_screen_and_(width_<=_640px)]:text-[28px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 700789,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\<\\=_640px\\)\\]\\:text-\\[28px\\]{font-size:28px}"
+    },
+    "[@media_screen_and_(width_<=_768px)]:flex-col": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 701545,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\<\\=_768px\\)\\]\\:flex-col{flex-direction:column}"
+    },
+    "[@media_screen_and_(width_<=_768px)]:items-logical-start": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 701622,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\<\\=_768px\\)\\]\\:items-logical-start{align-items:st}"
+    },
+    "[@media_screen_and_(width_<_1120px)]:[&_[data-design-template-shell]:nth-child(n+12)]:hidden": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 698645,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\<_1120px\\)\\]\\:\\[\\&_\\[data-design-template-shell\\]}"
+    },
+    "[@media_screen_and_(width_<_1120px)]:[&_button[data-analytics-id='template_card']:nth-child(n+7)]:hidden": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 698801,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\<_1120px\\)\\]\\:\\[\\&_button\\[data-analytics-id\\=\\'t}"
+    },
+    "[@media_screen_and_(width_<_1120px)]:grid-cols-3": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 698542,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\<_1120px\\)\\]\\:grid-cols-3{grid-template-columns:r}"
+    },
+    "[@media_screen_and_(width_<_568px)]:[&_[data-design-template-shell]:nth-child(n+10)]:hidden": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 699139,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\<_568px\\)\\]\\:\\[\\&_\\[data-design-template-shell\\]\\}"
+    },
+    "[@media_screen_and_(width_<_568px)]:[&_button[data-analytics-id='template_card']:nth-child(n+3)]:hidden": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 699294,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\<_568px\\)\\]\\:\\[\\&_button\\[data-analytics-id\\=\\'te}"
+    },
+    "[@media_screen_and_(width_<_568px)]:grid-cols-1": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 699037,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\<_568px\\)\\]\\:grid-cols-1{grid-template-columns:re}"
+    },
+    "[@media_screen_and_(width_<_844px)]:[&_[data-design-template-shell]:nth-child(n+11)]:hidden": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 699760,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\<_844px\\)\\]\\:\\[\\&_\\[data-design-template-shell\\]\\}"
+    },
+    "[@media_screen_and_(width_<_844px)]:[&_button[data-analytics-id='template_card']:nth-child(n+5)]:hidden": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 699915,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\<_844px\\)\\]\\:\\[\\&_button\\[data-analytics-id\\=\\'te}"
+    },
+    "[@media_screen_and_(width_<_844px)]:grid-cols-2": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 699658,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\<_844px\\)\\]\\:grid-cols-2{grid-template-columns:re}"
+    },
+    "[@media_screen_and_(width_>=_1024px)]:bg-[linear-gradient(to_bottom,transparent_0%,var(--design-page-bg,#f6f5f4)_74%)]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 703026,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\>\\=_1024px\\)\\]\\:bg-\\[linear-gradient\\(to_bottom\\,}"
+    },
+    "[@media_screen_and_(width_>=_1024px)]:h-[332px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 702758,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\>\\=_1024px\\)\\]\\:h-\\[332px\\]{height:332px}"
+    },
+    "[@media_screen_and_(width_>=_1024px)]:max-h-[667px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 702830,
+      "snippet": ".\\[\\@media_screen_and_\\(width_\\>\\=_1024px\\)\\]\\:max-h-\\[667px\\]{max-height:667px}"
+    },
+    "[[data-rui-diagnostics]_&:not([data-ruic])]:[outline:2px_solid_var(--accent-negative-default)]!": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 775573,
+      "snippet": ".\\[\\[data-rui-diagnostics\\]_\\&\\:not\\(\\[data-ruic\\]\\)\\]\\:\\[outline\\:2px_solid_var}"
+    },
+    "[[data-rui-diagnostics]_&:not([data-ruic])]:outline-offset-2!": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 775786,
+      "snippet": ".\\[\\[data-rui-diagnostics\\]_\\&\\:not\\(\\[data-ruic\\]\\)\\]\\:outline-offset-2\\!:not([}"
+    },
+    "[view-transition-name:design-templates-chips]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 312578,
+      "snippet": ".\\[view-transition-name\\:design-templates-chips\\]{view-transition-name:design-te}"
+    },
+    "[view-transition-name:design-templates-heading]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 312672,
+      "snippet": ".\\[view-transition-name\\:design-templates-heading\\]{view-transition-name:design-}"
+    },
+    "_sdz_custom-hover:shades-up-2": {
+      "file": "2crx7tcomwfu9.css",
+      "offset": 582202,
+      "snippet": "._sdz_custom-hover\\:shades-up-2:hover:not(:disabled,[aria-disabled=true]),._sdz_}"
+    },
+    "_sdz_custom-pressed:shades-up-3": {
+      "file": "2crx7tcomwfu9.css",
+      "offset": 72668,
+      "snippet": "._sdz_custom-pressed\\:shades-up-3:is(:is([data-rac],[data-react-aria-pressable])}"
+    },
+    "absolute": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 4458,
+      "snippet": ".absolute{position:absolute}"
+    },
+    "aria-disabled:cursor-not-allowed": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 363146,
+      "snippet": ".aria-disabled\\:cursor-not-allowed[aria-disabled=true]{cursor:not-allowed}"
+    },
+    "aria-disabled:opacity-50": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 363220,
+      "snippet": ".aria-disabled\\:opacity-50[aria-disabled=true]{opacity:.5}"
+    },
+    "aspect-[300/211.5]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 25681,
+      "snippet": ".aspect-\\[300\\/211\\.5\\]{aspect-ratio:300/211.5}"
+    },
+    "bg-(--design-page-bg)": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 136710,
+      "snippet": ".bg-\\(--design-page-bg\\){background-color:var(--design-page-bg)}"
+    },
+    "bg-[#181818]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 140252,
+      "snippet": ".bg-\\[\\#181818\\]{background-color:#181818}"
+    },
+    "bg-[#f6f5f4]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 140588,
+      "snippet": ".bg-\\[\\#f6f5f4\\]{background-color:#f6f5f4}"
+    },
+    "bg-[linear-gradient(to_bottom,transparent_0%,var(--design-page-bg,#f6f5f4)_55%)]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 159871,
+      "snippet": ".bg-\\[linear-gradient\\(to_bottom\\,transparent_0\\%\\,var\\(--design-page-bg\\,\\#f6f5}"
+    },
+    "bg-transparent": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 156060,
+      "snippet": ".bg-transparent{background-color:#0000}"
+    },
+    "block": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 24194,
+      "snippet": ".block{display:block}"
+    },
+    "border": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 76444,
+      "snippet": ".border-collapse{border-collapse:collapse}"
+    },
+    "border-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 114906,
+      "snippet": ".border-0{border-style:var(--tw-border-style);border-width:0}"
+    },
+    "border-[#181818]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 124672,
+      "snippet": ".border-\\[\\#181818\\]{border-color:#181818}"
+    },
+    "border-[#d8d5cf]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 124882,
+      "snippet": ".border-\\[\\#d8d5cf\\]{border-color:#d8d5cf}"
+    },
+    "border-[#ff3c00]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 125008,
+      "snippet": ".border-\\[\\#ff3c00\\]{border-color:#ff3c00}"
+    },
+    "border-[1.5px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 115176,
+      "snippet": ".border-\\[1\\.5px\\],.border-\\[length\\:1\\.5px\\]{border-style:var(--tw-border-style}"
+    },
+    "border-[rgb(197_197_197_/_60%)]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 126145,
+      "snippet": ".border-\\[rgb\\(197_197_197_\\/_60\\%\\)\\]{border-color:#c5c5c599}"
+    },
+    "border-solid": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 119073,
+      "snippet": ".border-solid{--tw-border-style:solid;border-style:solid}"
+    },
+    "bottom-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 10535,
+      "snippet": ".bottom-0{bottom:0}"
+    },
+    "bottom-[82px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 10991,
+      "snippet": ".bottom-\\[82px\\]{bottom:82px}"
+    },
+    "box-border": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 23332,
+      "snippet": ".box-border{box-sizing:border-box}"
+    },
+    "contain-[layout_paint]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 261719,
+      "snippet": ".contain-\\[layout_paint\\]{contain:layout paint}"
+    },
+    "cursor-pointer": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 89533,
+      "snippet": ".cursor-pointer{cursor:pointer}"
+    },
+    "custom-focus-not-focus-visible:outline-transparent": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 408943,
+      "snippet": ".custom-focus-not-focus-visible\\:outline-transparent:not([disabled],[aria-disabl}"
+    },
+    "custom-focus-visible-active:outline-accent-primary-default": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 410090,
+      "snippet": ".custom-focus-visible-active\\:outline-accent-primary-default:not([disabled],[ari}"
+    },
+    "custom-focus-visible-active:transition-none": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 411868,
+      "snippet": ".custom-focus-visible-active\\:transition-none:not([disabled],[aria-disabled=true}"
+    },
+    "custom-focus:-outline-offset-2": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 414078,
+      "snippet": ".custom-focus\\:-outline-offset-2:not([disabled],[aria-disabled=true]):focus-visi}"
+    },
+    "custom-focus:outline-2": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 413866,
+      "snippet": ".custom-focus\\:outline-2:not([disabled],[aria-disabled=true]):focus-visible,.cus}"
+    },
+    "custom-focus:outline-accent-primary-default": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 414606,
+      "snippet": ".custom-focus\\:outline-accent-primary-default:not([disabled],[aria-disabled=true}"
+    },
+    "custom-focus:outline-solid": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 414869,
+      "snippet": ".custom-focus\\:outline-solid:not([disabled],[aria-disabled=true]):focus-visible{}"
+    },
+    "custom-pointer-capable:cursor-pointer": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 407931,
+      "snippet": ".custom-pointer-capable\\:cursor-pointer:not([disabled],[aria-disabled],input:not}"
+    },
+    "disabled:cursor-not-allowed": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 360612,
+      "snippet": ".disabled\\:cursor-not-allowed:disabled{cursor:not-allowed}"
+    },
+    "disabled:opacity-50": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 361325,
+      "snippet": ".disabled\\:opacity-50:disabled{opacity:.5}"
+    },
+    "duration-150": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 258248,
+      "snippet": ".duration-150{--tw-duration:.15s;transition-duration:.15s}"
+    },
+    "duration-200": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 258422,
+      "snippet": ".duration-200{--tw-duration:.2s;transition-duration:.2s}"
+    },
+    "ease-[ease]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 260068,
+      "snippet": ".ease-\\[ease\\]{--tw-ease:ease;transition-timing-function:ease}"
+    },
+    "flex": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 24242,
+      "snippet": ".flex{display:flex}"
+    },
+    "flex-col": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 101735,
+      "snippet": ".flex-col{flex-direction:column}"
+    },
+    "flex-row": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 101815,
+      "snippet": ".flex-row{flex-direction:row}"
+    },
+    "flex-wrap": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 101919,
+      "snippet": ".flex-wrap{flex-wrap:wrap}"
+    },
+    "focus-visible:outline-[2px_solid_#181818]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 357760,
+      "snippet": ".focus-visible\\:outline-\\[2px_solid_\\#181818\\]:focus-visible{outline-color:2px s}"
+    },
+    "focus-visible:outline-offset-2": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 357143,
+      "snippet": ".focus-visible\\:outline-offset-2:focus-visible,.focus-visible\\:outline-offset-\\[}"
+    },
+    "font-[450]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 199363,
+      "snippet": ".font-\\[450\\]{--tw-font-weight:450;font-weight:450}"
+    },
+    "font-[500]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 199414,
+      "snippet": ".font-\\[500\\]{--tw-font-weight:500;font-weight:500}"
+    },
+    "font-inherit": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 313433,
+      "snippet": ".font-inherit{font:inherit}"
+    },
+    "font-medium": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 200107,
+      "snippet": ".font-medium{--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-w}"
+    },
+    "gap-200": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 103631,
+      "snippet": ".gap-200{gap:8px}"
+    },
+    "gap-400": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 103702,
+      "snippet": ".gap-400{gap:16px}"
+    },
+    "gap-600": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 103756,
+      "snippet": ".gap-600{gap:24px}"
+    },
+    "grid": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 24290,
+      "snippet": ".grid{display:grid}"
+    },
+    "grid-cols-4": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 92999,
+      "snippet": ".grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}"
+    },
+    "h-8000": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 32078,
+      "snippet": ".h-8000{height:320px}"
+    },
+    "h-900": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 31897,
+      "snippet": ".h-900{height:36px}"
+    },
+    "hover:bg-[#ff3c00]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 351412,
+      "snippet": ".hover\\:bg-\\[\\#ff3c00\\]:hover{background-color:#ff3c00}"
+    },
+    "hover:border-[#181818]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 350577,
+      "snippet": ".hover\\:border-\\[\\#181818\\]:hover{border-color:#181818}"
+    },
+    "hover:border-[#a8a49d]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 350632,
+      "snippet": ".hover\\:border-\\[\\#a8a49d\\]:hover{border-color:#a8a49d}"
+    },
+    "hover:shadow-[0_4px_24px_rgb(0_0_0_/_10%)]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 352757,
+      "snippet": ".hover\\:shadow-\\[0_4px_24px_rgb\\(0_0_0_\\/_10\\%\\)\\]:hover{--tw-shadow:0 4px 24px }"
+    },
+    "hover:text-[#fff]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 352389,
+      "snippet": ".hover\\:text-\\[\\#fff\\]:hover,.hover\\:text-\\[rgb\\(255_255_255\\)\\]:hover,.hover\\:t}"
+    },
+    "inline-flex": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 24388,
+      "snippet": ".inline-flex{display:inline-flex}"
+    },
+    "inset-x-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 5037,
+      "snippet": ".inset-x-0{inset-inline:0}"
+    },
+    "interactive-radius-default": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 106841,
+      "snippet": ".interactive-radius-default{--interactive2-border-radius:var(--border-radius-6);}"
+    },
+    "items-center": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 102186,
+      "snippet": ".items-center{align-items:center}"
+    },
+    "items-stretch": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 102293,
+      "snippet": ".items-stretch{align-items:stretch}"
+    },
+    "justify-between": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 102373,
+      "snippet": ".justify-between{justify-content:space-between}"
+    },
+    "justify-center": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 102420,
+      "snippet": ".justify-center{justify-content:center}"
+    },
+    "justify-logical-start": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 102549,
+      "snippet": ".justify-logical-start{justify-content:start}"
+    },
+    "leading-tight": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 198877,
+      "snippet": ".leading-tight{--tw-leading:var(--line-height-header-big);line-height:var(--line}"
+    },
+    "left-1/2": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 12889,
+      "snippet": ".left-1\\/2{left:50%}"
+    },
+    "m-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 17532,
+      "snippet": ".m-0{margin:0}"
+    },
+    "max-h-[560px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 41749,
+      "snippet": ".max-h-\\[560px\\]{max-height:560px}"
+    },
+    "max-w-32000": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 65097,
+      "snippet": ".max-w-32000{max-width:1280px}"
+    },
+    "max-w-full": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 70719,
+      "snippet": ".max-w-full{max-width:100%}"
+    },
+    "min-h-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 45799,
+      "snippet": ".min-h-0{min-height:0}"
+    },
+    "min-w-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 71033,
+      "snippet": ".min-w-0{min-width:0}"
+    },
+    "mx-auto": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 18563,
+      "snippet": ".mx-auto{margin-inline:auto}"
+    },
+    "overflow-hidden": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 105929,
+      "snippet": ".overflow-hidden{overflow:hidden}"
+    },
+    "pb-[112px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 181903,
+      "snippet": ".pb-\\[112px\\]{padding-bottom:112px}"
+    },
+    "pointer-events-none": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 3976,
+      "snippet": ".pointer-events-none{pointer-events:none}"
+    },
+    "pt-[120px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 177290,
+      "snippet": ".pt-\\[120px\\]{padding-top:120px}"
+    },
+    "px-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 173523,
+      "snippet": ".px-0{padding-inline:0}"
+    },
+    "px-400": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 173737,
+      "snippet": ".px-400{padding-inline:16px}"
+    },
+    "px-500": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 173793,
+      "snippet": ".px-500{padding-inline:20px}"
+    },
+    "px-[17px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 174281,
+      "snippet": ".px-\\[17px\\]{padding-inline:17px}"
+    },
+    "py-250": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 174980,
+      "snippet": ".py-250{padding-block:10px}"
+    },
+    "relative": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 4508,
+      "snippet": ".relative{position:relative}"
+    },
+    "rounded-16": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 109080,
+      "snippet": ".rounded-16{border-radius:16px}"
+    },
+    "rounded-8": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 109020,
+      "snippet": ".rounded-8{border-radius:8px}"
+    },
+    "rounded-full": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 111723,
+      "snippet": ".rounded-full{border-radius:9999px}"
+    },
+    "shrink": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 74780,
+      "snippet": ".shrink{flex-shrink:1}"
+    },
+    "shrink-0": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 74867,
+      "snippet": ".shrink-0{flex-shrink:0}"
+    },
+    "text-(length:--font-size-header-big)": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 192563,
+      "snippet": ".text-\\(length\\:--font-size-header-big\\){font-size:var(--font-size-header-big)}"
+    },
+    "text-[#181818]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 209962,
+      "snippet": ".text-\\[\\#181818\\]{color:#181818}"
+    },
+    "text-[#55524e]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 209896,
+      "snippet": ".text-\\[\\#55524e\\]{color:#55524e}"
+    },
+    "text-[#ff3c00]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 210193,
+      "snippet": ".text-\\[\\#ff3c00\\]{color:#ff3c00}"
+    },
+    "text-[#fff]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 210226,
+      "snippet": ".text-\\[\\#fff\\]{color:#fff}"
+    },
+    "text-[14px]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 193357,
+      "snippet": ".text-\\[14px\\]{font-size:14px}"
+    },
+    "text-color-default": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 213112,
+      "snippet": ".text-color-default{color:var(--text-color)}"
+    },
+    "tracking-[-0.02em]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 200817,
+      "snippet": ".tracking-\\[-0\\.02em\\]{--tw-tracking:-.02em;letter-spacing:-.02em}"
+    },
+    "transform-[translateX(-50%)]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 88175,
+      "snippet": ".transform-\\[translateX\\(-50\\%\\)\\]{transform:translate(-50%)}"
+    },
+    "transition-[background-color,color]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 250383,
+      "snippet": ".transition-\\[background-color\\,color\\]{transition-property:background-color,col}"
+    },
+    "transition-[border-color,background-color,color]": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 251066,
+      "snippet": ".transition-\\[border-color\\,background-color\\,color\\]{transition-property:border}"
+    },
+    "transition-shadow": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 256846,
+      "snippet": ".transition-shadow{transition-property:box-shadow;transition-timing-function:var}"
+    },
+    "view-outline-none": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 240682,
+      "snippet": ".view-outline-none{outline:none}"
+    },
+    "w-full": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 63886,
+      "snippet": ".w-full{width:100%}"
+    },
+    "whitespace-nowrap": {
+      "file": "20vunzhr_pfbh.css",
+      "offset": 202929,
+      "snippet": ".whitespace-nowrap{white-space:nowrap}"
+    }
+  },
+  "uncovered": []
+}

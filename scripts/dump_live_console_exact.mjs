@@ -1,0 +1,46 @@
+import WebSocket from 'ws';
+import fs from 'fs';
+
+async function evalInTab(targetId, expression) {
+  const tabs = await fetch('http://127.0.0.1:9222/json').then(r => r.json());
+  const tab = tabs.find(t => t.id === targetId);
+  return new Promise((resolve, reject) => {
+    const ws = new WebSocket(tab.webSocketDebuggerUrl);
+    ws.on('open', () => {
+      ws.send(JSON.stringify({
+        id: 1,
+        method: 'Runtime.evaluate',
+        params: { expression, returnByValue: true }
+      }));
+    });
+    ws.on('message', data => {
+      try {
+        const msg = JSON.parse(data);
+        if (msg.id === 1) {
+          ws.close();
+          resolve(msg.result?.result?.value);
+        }
+      } catch (e) {}
+    });
+    ws.on('error', reject);
+  });
+}
+
+async function main() {
+  const liveTarget = '4D5803D83D1C78981FF3E408A2F4B2D5';
+  const script = `(() => {
+    let el = document.elementFromPoint(1200, 300);
+    while (el && el.parentElement && el.parentElement.tagName !== 'MAIN') {
+      el = el.parentElement;
+    }
+    return el ? { html: el.outerHTML, rect: el.getBoundingClientRect(), style: el.getAttribute('style') } : null;
+  })()`;
+
+  const res = await evalInTab(liveTarget, script);
+  if (res) {
+    fs.writeFileSync('work/analysis/signed_in/live_console_pane_exact.html', res.html);
+    console.log('Saved live_console_pane_exact.html! Length:', res.html.length, 'Style:', res.style);
+  }
+}
+
+main().catch(console.error);

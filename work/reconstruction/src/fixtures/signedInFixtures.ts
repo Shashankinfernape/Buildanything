@@ -66,6 +66,40 @@ export const initialUserProfile: UserProfile = {
 
 export const initialProjects: ProjectItem[] = [
   {
+    id: 'proj_commerce',
+    title: 'PetCareConnect',
+    description: 'Modern storefront built with React and Tailwind',
+    language: 'TypeScript',
+    icon: '⚛️',
+    updatedAt: '6 months ago',
+    isPrivate: true,
+    activeFile: 'src/App.tsx',
+    openTabs: ['src/App.tsx', 'package.json'],
+    files: {
+      'src/App.tsx': `import React from 'react';
+
+export default function App() {
+  return <div>PetCareConnect</div>;
+}
+`,
+      'package.json': `{"name": "petcareconnect"}`
+    }
+  },
+  {
+    id: 'proj_waitlist',
+    title: 'VisionMart',
+    description: 'Viral referral signup page with analytics',
+    language: 'HTML/CSS',
+    icon: '🌐',
+    updatedAt: '6 months ago',
+    isPrivate: true,
+    activeFile: 'index.html',
+    openTabs: ['index.html'],
+    files: {
+      'index.html': `<!DOCTYPE html><html><body><h1>VisionMart</h1></body></html>`
+    }
+  },
+  {
     id: 'proj_demo',
     title: 'DeficientPlumpMisrac',
     description: 'Python Flask REST API with microservice architecture',
@@ -116,26 +150,6 @@ run = "python main.py"
     }
   },
   {
-    id: 'proj_commerce',
-    title: 'PetCareConnect',
-    description: 'Modern storefront built with React and Tailwind',
-    language: 'TypeScript',
-    icon: '⚛️',
-    updatedAt: '6 months ago',
-    isPrivate: true,
-    activeFile: 'src/App.tsx',
-    openTabs: ['src/App.tsx', 'package.json'],
-    files: {
-      'src/App.tsx': `import React from 'react';
-
-export default function App() {
-  return <div>PetCareConnect</div>;
-}
-`,
-      'package.json': `{"name": "petcareconnect"}`
-    }
-  },
-  {
     id: 'proj_service',
     title: 'WaitlistWizard',
     description: 'Customer scheduling and messaging portal',
@@ -147,20 +161,6 @@ export default function App() {
     openTabs: ['server.js'],
     files: {
       'server.js': `console.log('WaitlistWizard running');`
-    }
-  },
-  {
-    id: 'proj_waitlist',
-    title: 'VisionMart',
-    description: 'Viral referral signup page with analytics',
-    language: 'HTML/CSS',
-    icon: '🌐',
-    updatedAt: '6 months ago',
-    isPrivate: true,
-    activeFile: 'index.html',
-    openTabs: ['index.html'],
-    files: {
-      'index.html': `<!DOCTYPE html><html><body><h1>VisionMart</h1></body></html>`
     }
   }
 ];

@@ -42,12 +42,26 @@ function makeArt(b64, outPath) {
 }
 
 async function main() {
+  console.log('Ensuring viewports are strictly 1440x765 on both targets...');
+  await cdpCommand(liveTarget, 'Emulation.setDeviceMetricsOverride', {
+    width: 1440,
+    height: 765,
+    deviceScaleFactor: 1,
+    mobile: false
+  });
+  await cdpCommand(reconTarget, 'Emulation.setDeviceMetricsOverride', {
+    width: 1440,
+    height: 765,
+    deviceScaleFactor: 1,
+    mobile: false
+  });
+
   console.log('Ensuring live target is at workspace repl...');
   await cdpCommand(liveTarget, 'Page.navigate', { url: 'https://replit.com/@infernapeshasha/DeficientPlumpMisrac' });
 
-  console.log('Ensuring recon target is at workspace...');
+  console.log('Ensuring recon target is at workspace with DeficientPlumpMisrac...');
   await cdpCommand(reconTarget, 'Runtime.evaluate', {
-    expression: `window.__setReconScreen && window.__setReconScreen('workspace')`
+    expression: `window.__openProject ? window.__openProject('proj_demo') : (window.__setReconScreen && window.__setReconScreen('workspace'))`
   });
 
   await new Promise(r => setTimeout(r, 6000));
@@ -68,7 +82,7 @@ async function main() {
     const reconSnap = await cdpCommand(reconTarget, 'Page.captureScreenshot', { format: 'png', clip: z.clip });
     const reconArt = makeArt(reconSnap.result.data, `work/captures/recon_${z.name}_art.json`);
 
-    const out5 = execSync(`rea compare-web-screenshots "${liveArt}" "${reconArt}" --channel-threshold 5 --format json`, { maxBuffer: 50 * 1024 * 1024, encoding: 'utf8' });
+    const out5 = execSync(`rea compare-web-screenshots "${liveArt}" "${reconArt}" --channel-threshold 5 --format json --filter-output normalized_result`, { maxBuffer: 50 * 1024 * 1024, encoding: 'utf8' });
     const diff5 = JSON.parse(out5).normalized_result;
 
     console.log(`Zone [${z.name}]:`);

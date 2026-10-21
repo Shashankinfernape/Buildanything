@@ -4,37 +4,71 @@ import path from 'path';
 import crypto from 'crypto';
 import { execSync } from 'child_process';
 
-const reconTarget = '6D4B931B5EC0B7BE74E378FA2E19EDD9';
+class CdpSession {
+  constructor(wsUrl) {
+    this.wsUrl = wsUrl;
+    this.ws = null;
+    this.nextId = 1;
+    this.pending = new Map();
+  }
 
-async function cdpCommand(targetId, method, params = {}) {
-  const tabs = await fetch('http://127.0.0.1:9222/json').then(r => r.json());
-  const tab = tabs.find(t => t.id === targetId);
-  return new Promise((resolve, reject) => {
-    const ws = new WebSocket(tab.webSocketDebuggerUrl);
-    ws.on('open', () => {
-      ws.send(JSON.stringify({ id: 1, method, params }));
+  async connect() {
+    return new Promise((resolve, reject) => {
+      this.ws = new WebSocket(this.wsUrl);
+      this.ws.on('open', resolve);
+      this.ws.on('error', reject);
+      this.ws.on('message', data => {
+        try {
+          const msg = JSON.parse(data);
+          if (msg.id && this.pending.has(msg.id)) {
+            const { resolve: res, reject: rej } = this.pending.get(msg.id);
+            this.pending.delete(msg.id);
+            if (msg.error) rej(new Error(msg.error.message));
+            else res(msg.result);
+          }
+        } catch (e) {}
+      });
     });
-    ws.on('message', data => {
-      try {
-        const msg = JSON.parse(data);
-        if (msg.id === 1) {
-          ws.close();
-          resolve(msg);
+  }
+
+  async send(method, params = {}) {
+    const id = this.nextId++;
+    return new Promise((resolve, reject) => {
+      const timer = setTimeout(() => {
+        if (this.pending.has(id)) {
+          this.pending.delete(id);
+          reject(new Error(`CDP command ${method} timed out after 10s`));
         }
-      } catch (e) {}
+      }, 10000);
+      this.pending.set(id, {
+        resolve: val => { clearTimeout(timer); resolve(val); },
+        reject: err => { clearTimeout(timer); reject(err); }
+      });
+      this.ws.send(JSON.stringify({ id, method, params }));
     });
-    ws.on('error', reject);
-  });
+  }
+
+  close() {
+    if (this.ws) {
+      try { this.ws.close(); } catch (e) {}
+    }
+  }
 }
 
-async function captureScreen(screenKey) {
-  await cdpCommand(reconTarget, 'Runtime.evaluate', {
-    expression: `window.__setReconScreen && window.__setReconScreen('${screenKey}')`
-  });
+async function captureScreen(session, screenKey) {
+  if (screenKey === 'workspace') {
+    await session.send('Runtime.evaluate', {
+      expression: `window.__openProject ? window.__openProject('proj_demo') : (window.__setReconScreen && window.__setReconScreen('workspace'))`
+    });
+  } else {
+    await session.send('Runtime.evaluate', {
+      expression: `window.__setReconScreen && window.__setReconScreen('${screenKey}')`
+    });
+  }
   await new Promise(r => setTimeout(r, 1500));
 
-  const snapRes = await cdpCommand(reconTarget, 'Page.captureScreenshot', { format: 'png' });
-  const b64 = snapRes.result?.data;
+  const snapRes = await session.send('Page.captureScreenshot', { format: 'png' });
+  const b64 = snapRes.data;
   const buf = Buffer.from(b64, 'base64');
   const sha256 = crypto.createHash('sha256').update(buf).digest('hex');
 
@@ -54,10 +88,10 @@ async function captureScreen(screenKey) {
 }
 
 function runReaCompare(liveArtPath, reconArtPath) {
-  const out5 = execSync(`rea compare-web-screenshots "${liveArtPath}" "${reconArtPath}" --channel-threshold 5 --format json`, { maxBuffer: 100 * 1024 * 1024, encoding: 'utf8' });
+  const out5 = execSync(`rea compare-web-screenshots "${liveArtPath}" "${reconArtPath}" --channel-threshold 5 --format json --filter-output normalized_result`, { maxBuffer: 100 * 1024 * 1024, encoding: 'utf8' });
   const diff5 = JSON.parse(out5).normalized_result;
 
-  const out1 = execSync(`rea compare-web-screenshots "${liveArtPath}" "${reconArtPath}" --channel-threshold 1 --format json`, { maxBuffer: 100 * 1024 * 1024, encoding: 'utf8' });
+  const out1 = execSync(`rea compare-web-screenshots "${liveArtPath}" "${reconArtPath}" --channel-threshold 1 --format json --filter-output normalized_result`, { maxBuffer: 100 * 1024 * 1024, encoding: 'utf8' });
   const diff1 = JSON.parse(out1).normalized_result;
 
   return {
@@ -72,6 +106,21 @@ function runReaCompare(liveArtPath, reconArtPath) {
 }
 
 async function main() {
+  const tabs = await fetch('http://127.0.0.1:9222/json').then(r => r.json());
+  const reconTab = tabs.find(t => t.id === '6D4B931B5EC0B7BE74E378FA2E19EDD9') || tabs.find(t => t.url.includes('5174'));
+  if (!reconTab) throw new Error('Recon tab not found on 5174');
+
+  const session = new CdpSession(reconTab.webSocketDebuggerUrl);
+  await session.connect();
+
+  // Enforce 1440x765 desktop viewport
+  await session.send('Emulation.setDeviceMetricsOverride', {
+    width: 1440,
+    height: 765,
+    deviceScaleFactor: 1,
+    mobile: false
+  });
+
   const auditScreens = [
     { name: 'Import', screenKey: 'import', liveArt: path.resolve('work/captures/live_import_art.json') },
     { name: 'Library', screenKey: 'projects', liveArt: path.resolve('work/captures/live_library_art.json') },
@@ -86,16 +135,18 @@ async function main() {
 
   for (const s of auditScreens) {
     console.log(`Auditing: ${s.name} (${s.screenKey})...`);
-    const reconArt = await captureScreen(s.screenKey);
+    const reconArt = await captureScreen(session, s.screenKey);
     const res = runReaCompare(s.liveArt, reconArt);
     results.push({ name: s.name, ...res });
     console.log(`  -> t=5: ${res.changed_ratio_t5} changed | t=1: ${res.changed_ratio_t1} | delta: ${res.mean_delta} | PASS: ${res.pass}`);
   }
 
   // Restore recon to home
-  await cdpCommand(reconTarget, 'Runtime.evaluate', {
+  await session.send('Runtime.evaluate', {
     expression: `window.__setReconScreen && window.__setReconScreen('home')`
   });
+
+  session.close();
 
   console.log('\n================ MASTER REA AUDIT SUMMARY ================');
   console.table(results);

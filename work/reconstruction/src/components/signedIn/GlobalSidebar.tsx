@@ -200,6 +200,7 @@ export const GlobalSidebar: React.FC<GlobalSidebarProps> = ({
               <li className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 rounded-8">
                 <button
                   type="button"
+                  aria-label="Security"
                   onClick={() => onNavigate?.('security')}
                   className="text-color-default appearance-none border-solid border-transparent select-none flex h-800 w-full min-w-0 shrink-0 cursor-pointer flex-row items-center border text-left text-label-l-list-item pl-[calc(var(--spacing-100)-var(--border-width-regular))] pr-[calc(var(--spacing-200)-var(--border-width-regular))] rounded-8 bg-transparent hover:bg-surface"
                   style={{ height: '32px' }}

@@ -1,0 +1,53 @@
+{
+  "browser": {
+    "mode": "launch",
+    "executable_path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "headless": true
+  },
+  "start_url": { "url": "http://127.0.0.1:5174/~" },
+  "actions": [
+    {
+      "step_id": "wait_home",
+      "action": "wait_for_timeout",
+      "duration_ms": 1000
+    },
+    {
+      "step_id": "click_security",
+      "action": "click",
+      "locator": { "kind": "css", "selector": "button[aria-label='Security'], a[href*='security']" },
+      "timeout_ms": 5000
+    },
+    {
+      "step_id": "wait_security_page",
+      "action": "wait_for_timeout",
+      "duration_ms": 1000
+    },
+    {
+      "step_id": "open_severity_dropdown",
+      "action": "click",
+      "locator": { "kind": "css", "selector": "button[aria-label='Severity level']" },
+      "timeout_ms": 5000
+    },
+    {
+      "step_id": "wait_menu_open",
+      "action": "wait_for_timeout",
+      "duration_ms": 1000
+    },
+    {
+      "step_id": "select_high_severity",
+      "action": "click",
+      "locator": { "kind": "role", "role": "option", "name": "High" },
+      "timeout_ms": 5000
+    },
+    {
+      "step_id": "wait_selection",
+      "action": "wait_for_timeout",
+      "duration_ms": 1000
+    }
+  ],
+  "capture": {
+    "after_each_step": ["dom", "accessibility", "screenshot"],
+    "at_end": ["dom", "accessibility", "screenshot", "url"],
+    "events": ["console"]
+  }
+}

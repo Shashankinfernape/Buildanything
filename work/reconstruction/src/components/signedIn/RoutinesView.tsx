@@ -77,6 +77,7 @@ export const RoutinesView: React.FC = () => {
                 key={i}
                 data-ruic="Button"
                 data-analytics-id="routines_sample_upgrade_button"
+                aria-label={r.title}
                 type="button"
                 className="text-color-default appearance-none border-0 border-solid border-transparent select-none shadow-control bg-surface inset-ring inset-ring-surface-border-regular _sdz_custom-hover:shades-up-2 _sdz_custom-pressed:shades-up-3 _sdz_switch-theme _sdz_theme-text-input flex min-w-0 basis-auto cursor-pointer flex-row items-center shrink self-auto justify-logical-start gap-50 px-200 max-w-full h-auto min-h-800 rounded-full [&_span]:whitespace-normal [&_span]:h-auto py-[10px]"
               >

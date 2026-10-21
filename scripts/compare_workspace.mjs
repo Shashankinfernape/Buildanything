@@ -28,12 +28,16 @@ async function cdpCommand(targetId, method, params = {}) {
 }
 
 async function run() {
+  await fetch(`http://127.0.0.1:9222/json/activate/${reconTarget}`);
+  console.log('Reloading recon tab to pick up latest build...');
+  await cdpCommand(reconTarget, 'Page.reload', {});
+  await new Promise(r => setTimeout(r, 2000));
+
   console.log('Navigating recon tab to workspace...');
   await cdpCommand(reconTarget, 'Runtime.evaluate', {
     expression: `(() => {
-      if (window.__setReconScreen) {
-        window.__setReconScreen('workspace');
-      }
+      if (window.__openProject) window.__openProject('proj_demo');
+      else if (window.__setReconScreen) window.__setReconScreen('workspace');
     })()`
   });
 

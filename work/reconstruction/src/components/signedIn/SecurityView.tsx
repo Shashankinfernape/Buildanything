@@ -1,7 +1,69 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 export const SecurityView: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  
+  // Interactive state for MultiSelectDropdowns
+  const [openDropdown, setOpenDropdown] = useState<'severity' | 'status' | 'visibility' | null>(null);
+  const [selectedSeverities, setSelectedSeverities] = useState<Set<string>>(new Set());
+  const [selectedStatuses, setSelectedStatuses] = useState<Set<string>>(new Set());
+  const [selectedVisibilities, setSelectedVisibilities] = useState<Set<string>>(new Set());
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const severityOptions = [
+    { id: 'CRITICAL', label: 'Critical' },
+    { id: 'HIGH', label: 'High' },
+    { id: 'MEDIUM', label: 'Medium' },
+    { id: 'LOW', label: 'Low' },
+  ];
+
+  const statusOptions = [
+    { id: 'published', label: 'Published' },
+    { id: 'not_published', label: 'Not published' },
+  ];
+
+  const visibilityOptions = [
+    { id: 'public', label: 'Public' },
+    { id: 'private', label: 'Private' },
+  ];
+
+  const toggleSeverity = (id: string) => {
+    setSelectedSeverities(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const toggleStatus = (id: string) => {
+    setSelectedStatuses(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const toggleVisibility = (id: string) => {
+    setSelectedVisibilities(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
 
   return (
     <main
@@ -48,8 +110,8 @@ export const SecurityView: React.FC = () => {
             </div>
 
             {/* Filter and Dropdowns Row */}
-            <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 gap-200">
-              <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none justify-logical-start shrink-0 flex-row items-center gap-400 flex-wrap">
+            <div ref={containerRef} className="relative z-20 flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 gap-200">
+              <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none justify-logical-start shrink-0 flex-row items-center gap-400 flex-wrap relative z-50">
                 {/* Search Input */}
                 <div className="flex box-border min-h-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 max-w-8000 min-w-[280px]">
                   <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch relative shrink">
@@ -69,55 +131,138 @@ export const SecurityView: React.FC = () => {
                 </div>
 
                 {/* Dropdown 1: Severity level */}
-                <button
-                  type="button"
-                  data-ruic="MultiSelectDropdown"
-                  aria-label="Severity level"
-                  className="relative max-w-full text-color-default appearance-none border-0 border-solid border-transparent shadow-control bg-surface inset-ring inset-ring-surface-border-strong flex min-w-0 basis-auto cursor-pointer flex-row items-center shrink-0 self-auto justify-center h-800 gap-50 rounded-6 px-200 min-h-600"
-                >
-                  <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none justify-logical-start shrink flex-row items-center gap-100">
-                    <span className="box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 text-xs wrap-break-word inline text-color-default">
-                      Severity level
-                    </span>
-                  </div>
-                  <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ width: '16px', height: '16px' }}>
-                    <path fillRule="evenodd" d="M12.53 15.53a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 0 1 1.06-1.06L12 13.94l5.47-5.47a.75.75 0 1 1 1.06 1.06z" clipRule="evenodd" />
-                  </svg>
-                </button>
+                <div className="relative" style={{ zIndex: 1000 }}>
+                  <button
+                    type="button"
+                    data-ruic="MultiSelectDropdown"
+                    aria-label="Severity level"
+                    aria-expanded={openDropdown === 'severity'}
+                    onClick={() => setOpenDropdown(openDropdown === 'severity' ? null : 'severity')}
+                    className="relative max-w-full text-color-default appearance-none border-0 border-solid border-transparent shadow-control bg-surface inset-ring inset-ring-surface-border-strong flex min-w-0 basis-auto cursor-pointer flex-row items-center shrink-0 self-auto justify-center h-800 gap-50 rounded-6 px-200 min-h-600"
+                  >
+                    <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none justify-logical-start shrink flex-row items-center gap-100">
+                      <span className="box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 text-xs wrap-break-word inline text-color-default">
+                        {selectedSeverities.size > 0 ? `Severity level: ${selectedSeverities.size}` : 'Severity level'}
+                      </span>
+                    </div>
+                    <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ width: '16px', height: '16px' }}>
+                      <path fillRule="evenodd" d="M12.53 15.53a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 0 1 1.06-1.06L12 13.94l5.47-5.47a.75.75 0 1 1 1.06 1.06z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+
+                  {openDropdown === 'severity' && (
+                    <div role="listbox" aria-multiselectable="true" aria-label="Severity level options" style={{ zIndex: 1001 }} className="absolute top-[calc(100%+4px)] left-0 min-w-[200px] bg-[#1e1e1f] border border-[#3b3b3d] rounded-8 shadow-2xl p-100 flex flex-col gap-50">
+                      {severityOptions.map(opt => (
+                        <div
+                          key={opt.id}
+                          role="option"
+                          aria-label={opt.label}
+                          data-testid={`severity-option-${opt.id.toLowerCase()}`}
+                          aria-selected={selectedSeverities.has(opt.id)}
+                          onClick={() => toggleSeverity(opt.id)}
+                          className="flex items-center gap-200 px-200 py-150 rounded-4 cursor-pointer hover:bg-[#2b2b2d] text-xs text-color-default select-none"
+                        >
+                          <div className={`w-4 h-4 rounded-3 border flex items-center justify-center shrink-0 ${selectedSeverities.has(opt.id) ? 'bg-[#0079f2] border-[#0079f2] text-white' : 'border-[#555] bg-transparent'}`}>
+                            {selectedSeverities.has(opt.id) && (
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                            )}
+                          </div>
+                          <span>{opt.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
 
                 {/* Dropdown 2: Publishing status */}
-                <button
-                  type="button"
-                  data-ruic="MultiSelectDropdown"
-                  aria-label="Publishing status"
-                  className="relative max-w-full text-color-default appearance-none border-0 border-solid border-transparent shadow-control bg-surface inset-ring inset-ring-surface-border-strong flex min-w-0 basis-auto cursor-pointer flex-row items-center shrink-0 self-auto justify-center h-800 gap-50 rounded-6 px-200 min-h-600"
-                >
-                  <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none justify-logical-start shrink flex-row items-center gap-100">
-                    <span className="box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 text-xs wrap-break-word inline text-color-default">
-                      Publishing status
-                    </span>
-                  </div>
-                  <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ width: '16px', height: '16px' }}>
-                    <path fillRule="evenodd" d="M12.53 15.53a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 0 1 1.06-1.06L12 13.94l5.47-5.47a.75.75 0 1 1 1.06 1.06z" clipRule="evenodd" />
-                  </svg>
-                </button>
+                <div className="relative z-40">
+                  <button
+                    type="button"
+                    data-ruic="MultiSelectDropdown"
+                    aria-label="Publishing status"
+                    aria-expanded={openDropdown === 'status'}
+                    onClick={() => setOpenDropdown(openDropdown === 'status' ? null : 'status')}
+                    className="relative max-w-full text-color-default appearance-none border-0 border-solid border-transparent shadow-control bg-surface inset-ring inset-ring-surface-border-strong flex min-w-0 basis-auto cursor-pointer flex-row items-center shrink-0 self-auto justify-center h-800 gap-50 rounded-6 px-200 min-h-600"
+                  >
+                    <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none justify-logical-start shrink flex-row items-center gap-100">
+                      <span className="box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 text-xs wrap-break-word inline text-color-default">
+                        {selectedStatuses.size > 0 ? `Publishing status: ${selectedStatuses.size}` : 'Publishing status'}
+                      </span>
+                    </div>
+                    <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ width: '16px', height: '16px' }}>
+                      <path fillRule="evenodd" d="M12.53 15.53a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 0 1 1.06-1.06L12 13.94l5.47-5.47a.75.75 0 1 1 1.06 1.06z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+
+                  {openDropdown === 'status' && (
+                    <div role="listbox" aria-multiselectable="true" aria-label="Publishing status options" className="absolute top-[calc(100%+4px)] left-0 min-w-[200px] z-50 bg-[#1e1e1f] border border-[#3b3b3d] rounded-8 shadow-2xl p-100 flex flex-col gap-50">
+                      {statusOptions.map(opt => (
+                        <div
+                          key={opt.id}
+                          role="option"
+                          aria-selected={selectedStatuses.has(opt.id)}
+                          onClick={() => toggleStatus(opt.id)}
+                          className="flex items-center gap-200 px-200 py-150 rounded-4 cursor-pointer hover:bg-[#2b2b2d] text-xs text-color-default select-none"
+                        >
+                          <div className={`w-4 h-4 rounded-3 border flex items-center justify-center shrink-0 ${selectedStatuses.has(opt.id) ? 'bg-[#0079f2] border-[#0079f2] text-white' : 'border-[#555] bg-transparent'}`}>
+                            {selectedStatuses.has(opt.id) && (
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                            )}
+                          </div>
+                          <span>{opt.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
 
                 {/* Dropdown 3: Publish visibility */}
-                <button
-                  type="button"
-                  data-ruic="MultiSelectDropdown"
-                  aria-label="Publish visibility"
-                  className="relative max-w-full text-color-default appearance-none border-0 border-solid border-transparent shadow-control bg-surface inset-ring inset-ring-surface-border-strong flex min-w-0 basis-auto cursor-pointer flex-row items-center shrink-0 self-auto justify-center h-800 gap-50 rounded-6 px-200 min-h-600"
-                >
-                  <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none justify-logical-start shrink flex-row items-center gap-100">
-                    <span className="box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 text-xs wrap-break-word inline text-color-default">
-                      Publish visibility
-                    </span>
-                  </div>
-                  <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ width: '16px', height: '16px' }}>
-                    <path fillRule="evenodd" d="M12.53 15.53a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 0 1 1.06-1.06L12 13.94l5.47-5.47a.75.75 0 1 1 1.06 1.06z" clipRule="evenodd" />
-                  </svg>
-                </button>
+                <div className="relative z-30">
+                  <button
+                    type="button"
+                    data-ruic="MultiSelectDropdown"
+                    aria-label="Publish visibility"
+                    aria-expanded={openDropdown === 'visibility'}
+                    onClick={() => setOpenDropdown(openDropdown === 'visibility' ? null : 'visibility')}
+                    className="relative max-w-full text-color-default appearance-none border-0 border-solid border-transparent shadow-control bg-surface inset-ring inset-ring-surface-border-strong flex min-w-0 basis-auto cursor-pointer flex-row items-center shrink-0 self-auto justify-center h-800 gap-50 rounded-6 px-200 min-h-600"
+                  >
+                    <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none justify-logical-start shrink flex-row items-center gap-100">
+                      <span className="box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 text-xs wrap-break-word inline text-color-default">
+                        {selectedVisibilities.size > 0 ? `Publish visibility: ${selectedVisibilities.size}` : 'Publish visibility'}
+                      </span>
+                    </div>
+                    <svg preserveAspectRatio="xMidYMin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ width: '16px', height: '16px' }}>
+                      <path fillRule="evenodd" d="M12.53 15.53a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 0 1 1.06-1.06L12 13.94l5.47-5.47a.75.75 0 1 1 1.06 1.06z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+
+                  {openDropdown === 'visibility' && (
+                    <div role="listbox" aria-multiselectable="true" aria-label="Publish visibility options" className="absolute top-[calc(100%+4px)] left-0 min-w-[200px] z-50 bg-[#1e1e1f] border border-[#3b3b3d] rounded-8 shadow-2xl p-100 flex flex-col gap-50">
+                      {visibilityOptions.map(opt => (
+                        <div
+                          key={opt.id}
+                          role="option"
+                          aria-selected={selectedVisibilities.has(opt.id)}
+                          onClick={() => toggleVisibility(opt.id)}
+                          className="flex items-center gap-200 px-200 py-150 rounded-4 cursor-pointer hover:bg-[#2b2b2d] text-xs text-color-default select-none"
+                        >
+                          <div className={`w-4 h-4 rounded-3 border flex items-center justify-center shrink-0 ${selectedVisibilities.has(opt.id) ? 'bg-[#0079f2] border-[#0079f2] text-white' : 'border-[#555] bg-transparent'}`}>
+                            {selectedVisibilities.has(opt.id) && (
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                            )}
+                          </div>
+                          <span>{opt.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Status Row */}

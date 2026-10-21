@@ -15,6 +15,7 @@ export const Workspace: React.FC<WorkspaceProps> = ({
   // Tabs state
   const [centerTab, setCenterTab] = useState<'tools' | 'editor'>('tools');
   const [rightTab, setRightTab] = useState<'console' | 'shell'>('console');
+  const [segmentedMode, setSegmentedMode] = useState<'design' | 'build'>('build');
 
   // Execution & terminal state
   const [isRunning, setIsRunning] = useState(false);
@@ -97,16 +98,34 @@ export const Workspace: React.FC<WorkspaceProps> = ({
 
             {/* Segmented Control Design / Build */}
             <fieldset data-ruic="SegmentedControl" className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none justify-logical-start items-stretch shrink-0 relative rounded-8 flex-row w-fit bg-surface-2 p-[2px]">
-              <label className="relative flex flex-row items-center justify-center grow gap-50 min-w-0 min-h-0 rounded-6 cursor-pointer h-800 px-200 text-(--foreground-dimmest) hover:text-(--foreground-default)">
+              <button
+                type="button"
+                aria-label="Design mode"
+                onClick={() => setSegmentedMode('design')}
+                className={`relative flex flex-row items-center justify-center grow gap-50 min-w-0 min-h-0 rounded-6 cursor-pointer h-800 px-200 border-0 ${
+                  segmentedMode === 'design'
+                    ? 'bg-surface shadow-control text-(--foreground-default) border border-surface-border-strong font-semibold'
+                    : 'bg-transparent text-(--foreground-dimmest) hover:text-(--foreground-default)'
+                }`}
+              >
                 <span className="flex min-w-0 items-center gap-200 px-100 text-label-l-control">
                   <span className="min-w-0 grow truncate text-left text-xs">Design</span>
                 </span>
-              </label>
-              <label className="relative flex flex-row items-center justify-center grow gap-50 min-w-0 min-h-0 rounded-6 cursor-pointer bg-surface shadow-control h-800 px-200 text-(--foreground-default) border border-surface-border-strong">
+              </button>
+              <button
+                type="button"
+                aria-label="Build mode"
+                onClick={() => setSegmentedMode('build')}
+                className={`relative flex flex-row items-center justify-center grow gap-50 min-w-0 min-h-0 rounded-6 cursor-pointer h-800 px-200 border-0 ${
+                  segmentedMode === 'build'
+                    ? 'bg-surface shadow-control text-(--foreground-default) border border-surface-border-strong font-semibold'
+                    : 'bg-transparent text-(--foreground-dimmest) hover:text-(--foreground-default)'
+                }`}
+              >
                 <span className="flex min-w-0 items-center gap-200 px-100 text-label-l-control">
-                  <span className="min-w-0 grow truncate text-left text-xs font-semibold">Build</span>
+                  <span className="min-w-0 grow truncate text-left text-xs">Build</span>
                 </span>
-              </label>
+              </button>
             </fieldset>
 
             {/* Recovery / Warning Icon */}
@@ -242,12 +261,13 @@ export const Workspace: React.FC<WorkspaceProps> = ({
       {/* ========================================================= */}
       {/* PANE 2: TOOLS & CODE SPLIT PANE (w: 411px, x: 691..1102) */}
       {/* ========================================================= */}
-      <div className="flex flex-col border-r border-[#2B2B2D] bg-[#1e1e1f]" style={{ width: '411px' }}>
+      <div className="flex flex-col border-r border-[#2B2B2D] bg-[#222223]" style={{ width: '411px' }}>
         
         {/* Tab Bar (h: 36px) */}
-        <div className="h-[36px] bg-[#1a1a1b] border-b border-[#2B2B2D] flex items-center px-100 shrink-0">
+        <div className="h-[36px] bg-[#222223] border-b border-[#2B2B2D] flex items-center px-100 shrink-0">
           <button
             type="button"
+            aria-label="Tools tab"
             onClick={() => setCenterTab('tools')}
             className={`flex items-center gap-150 px-300 h-[28px] rounded-6 text-xs font-medium cursor-pointer border-0 transition-colors ${
               centerTab === 'tools' ? 'bg-[#28282a] text-white shadow-xs' : 'bg-transparent text-gray-400 hover:text-white'
@@ -261,6 +281,7 @@ export const Workspace: React.FC<WorkspaceProps> = ({
 
           <button
             type="button"
+            aria-label="Code editor tab"
             onClick={() => setCenterTab('editor')}
             className={`flex items-center gap-150 px-300 h-[28px] rounded-6 text-xs font-medium cursor-pointer border-0 transition-colors ml-100 ${
               centerTab === 'editor' ? 'bg-[#28282a] text-white shadow-xs' : 'bg-transparent text-gray-400 hover:text-white'
@@ -275,7 +296,7 @@ export const Workspace: React.FC<WorkspaceProps> = ({
 
         {/* Tab Content */}
         {centerTab === 'tools' ? (
-          <div className="flex-1 overflow-y-auto p-400 bg-[#1e1e1f] text-color-default">
+          <div className="flex-1 overflow-y-auto p-400 bg-[#222223] text-color-default">
             {/* Cloud Services */}
             <div className="mb-500">
               <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Cloud Services</span>
@@ -316,9 +337,9 @@ export const Workspace: React.FC<WorkspaceProps> = ({
           </div>
         ) : (
           /* Code Editor view */
-          <div className="flex-1 flex flex-col overflow-hidden bg-[#18191b]">
+          <div className="flex-1 flex flex-col overflow-hidden bg-[#222223]">
             <div className="flex-1 flex overflow-hidden font-mono text-xs text-gray-200">
-              <div className="w-10 bg-[#161617] text-gray-600 text-right pr-200 select-none pt-200 leading-[1.6]">
+              <div className="w-10 bg-[#1e1e1f] text-gray-600 text-right pr-200 select-none pt-200 leading-[1.6]">
                 {Array.from({ length: 15 }).map((_, i) => (
                   <div key={i}>{i + 1}</div>
                 ))}
@@ -341,13 +362,14 @@ export const Workspace: React.FC<WorkspaceProps> = ({
       {/* ========================================================= */}
       {/* PANE 3: CONSOLE & SHELL TERMINAL (flex-1 / w: ~338px)     */}
       {/* ========================================================= */}
-      <div className="flex-1 flex flex-col bg-[#141415] overflow-hidden">
+      <div className="flex-1 flex flex-col bg-[#222223] overflow-hidden">
         
         {/* Terminal Tab Bar (h: 36px) */}
-        <div className="h-[36px] bg-[#1a1a1b] border-b border-[#2B2B2D] flex items-center px-100 justify-between shrink-0">
+        <div className="h-[36px] bg-[#222223] border-b border-[#2B2B2D] flex items-center px-100 justify-between shrink-0">
           <div className="flex items-center gap-100">
             <button
               type="button"
+              aria-label="Console tab"
               onClick={() => setRightTab('console')}
               className={`flex items-center gap-150 px-300 h-[28px] rounded-6 text-xs font-medium cursor-pointer border-0 transition-colors ${
                 rightTab === 'console' ? 'bg-[#28282a] text-white shadow-xs' : 'bg-transparent text-gray-400 hover:text-white'
@@ -358,6 +380,7 @@ export const Workspace: React.FC<WorkspaceProps> = ({
 
             <button
               type="button"
+              aria-label="Shell tab"
               onClick={() => setRightTab('shell')}
               className={`flex items-center gap-150 px-300 h-[28px] rounded-6 text-xs font-medium cursor-pointer border-0 transition-colors ${
                 rightTab === 'shell' ? 'bg-[#28282a] text-white shadow-xs' : 'bg-transparent text-gray-400 hover:text-white'

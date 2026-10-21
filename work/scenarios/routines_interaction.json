@@ -1,0 +1,42 @@
+{
+  "browser": {
+    "mode": "launch",
+    "executable_path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "headless": true
+  },
+  "start_url": { "url": "http://127.0.0.1:5174/routines" },
+  "actions": [
+    {
+      "step_id": "wait_routines_view",
+      "action": "wait_for_timeout",
+      "duration_ms": 1500
+    },
+    {
+      "step_id": "click_first_routine_pill",
+      "action": "click",
+      "locator": { "kind": "css", "selector": "button[data-analytics-id='routines_sample_upgrade_button']:nth-child(1)" },
+      "timeout_ms": 5000
+    },
+    {
+      "step_id": "wait_after_first_pill",
+      "action": "wait_for_timeout",
+      "duration_ms": 1000
+    },
+    {
+      "step_id": "click_second_routine_pill",
+      "action": "click",
+      "locator": { "kind": "css", "selector": "button[data-analytics-id='routines_sample_upgrade_button']:nth-child(2)" },
+      "timeout_ms": 5000
+    },
+    {
+      "step_id": "wait_after_second_pill",
+      "action": "wait_for_timeout",
+      "duration_ms": 1000
+    }
+  ],
+  "capture": {
+    "after_each_step": ["dom", "accessibility", "screenshot"],
+    "at_end": ["dom", "accessibility", "screenshot", "url"],
+    "events": ["console"]
+  }
+}

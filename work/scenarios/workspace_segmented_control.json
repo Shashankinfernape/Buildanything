@@ -1,0 +1,64 @@
+{
+  "browser": {
+    "mode": "launch",
+    "executable_path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "headless": true
+  },
+  "start_url": { "url": "http://127.0.0.1:5174/@username/repl" },
+  "actions": [
+    {
+      "step_id": "wait_workspace",
+      "action": "wait_for_timeout",
+      "duration_ms": 1500
+    },
+    {
+      "step_id": "click_design_mode",
+      "action": "click",
+      "locator": { "kind": "css", "selector": "button[aria-label='Design mode']" },
+      "timeout_ms": 5000
+    },
+    {
+      "step_id": "wait_design_view",
+      "action": "wait_for_timeout",
+      "duration_ms": 1000
+    },
+    {
+      "step_id": "click_build_mode",
+      "action": "click",
+      "locator": { "kind": "css", "selector": "button[aria-label='Build mode']" },
+      "timeout_ms": 5000
+    },
+    {
+      "step_id": "wait_build_view",
+      "action": "wait_for_timeout",
+      "duration_ms": 1000
+    },
+    {
+      "step_id": "click_code_tab",
+      "action": "click",
+      "locator": { "kind": "css", "selector": "button[aria-label='Code editor tab']" },
+      "timeout_ms": 5000
+    },
+    {
+      "step_id": "wait_code_view",
+      "action": "wait_for_timeout",
+      "duration_ms": 1000
+    },
+    {
+      "step_id": "click_shell_tab",
+      "action": "click",
+      "locator": { "kind": "css", "selector": "button[aria-label='Shell tab']" },
+      "timeout_ms": 5000
+    },
+    {
+      "step_id": "wait_shell_view",
+      "action": "wait_for_timeout",
+      "duration_ms": 1000
+    }
+  ],
+  "capture": {
+    "after_each_step": ["dom", "accessibility", "screenshot"],
+    "at_end": ["dom", "accessibility", "screenshot", "url"],
+    "events": ["console"]
+  }
+}

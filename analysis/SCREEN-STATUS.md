@@ -108,3 +108,22 @@ All screens reachable from the live sidebar and header navigation were decompile
    - Screenshots: `analysis/screens/live_workspace.png` vs `analysis/screens/recon_workspace.png`
    - Elements: Global sidebar at `0..240px`, Agent chat pane at `240..691px` (authentic 48px header with project title selector, Design/Build segmented control, recovery badge, interactive prompt, CodeMirror drop target, model selector, Free tier pill, Plan checkbox, voice mic, and submit arrow), Tools split pane at `691..1102px` (Tools tab, Main.java editor tab, Replit Cloud and Setup cards grid), Console & Shell split pane at `1102..1440px` (interactive terminal, execution logs, clear button, and centered `Run .replit run command` action button).
 
+---
+
+### 3. Interactive Scenario Flow Verification (`rea capture-browser-scenario` + `rea compare-web-captures`)
+
+In addition to static pixel and DOM verification, multi-step deterministic interactive user journeys were tested and diffed end-to-end using REA's declarative scenario runner:
+
+| Scenario | Target Area | Declared Actions / Steps | Execution Duration | Alignment Status | Step Diff Status | Artifact Diffs |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **`security_filters.json`** | Security page filters | 8 steps (`goto_start`, `wait_home`, `click_security`, `wait_security_page`, `open_severity_dropdown`, `wait_menu_open`, `select_high_severity`, `wait_selection`) | 8,671 ms | **aligned** (8/8) | **unchanged** (8/8) | **0 diffs** |
+| **`workspace_segmented_control.json`** | Workspace pane controls | 10 steps (`goto_start`, `wait_workspace`, `click_design_mode`, `wait_design_view`, `click_build_mode`, `wait_build_view`, `click_code_tab`, `wait_code_view`, `click_shell_tab`, `wait_shell_view`) | 9,577 ms | **aligned** (10/10) | **unchanged** (10/10) | **0 diffs** |
+| **`routines_interaction.json`** | Routines action pills | 6 steps (`goto_start`, `wait_routines_view`, `click_first_routine_pill`, `wait_after_first_pill`, `click_second_routine_pill`, `wait_after_second_pill`) | 18,295 ms | **aligned** (6/6) | **unchanged** (6/6) | **0 diffs** |
+
+Evidence artifacts recorded:
+- `work/captures/security_scenario_capture.json` and `work/captures/security_scenario_norm.json`
+- `work/captures/workspace_scenario_capture.json` and `work/captures/workspace_scenario_norm.json`
+- `work/captures/routines_scenario_capture.json` and `work/captures/routines_scenario_norm.json`
+- Step screenshots saved in `analysis/screens/step_*.png`
+
+

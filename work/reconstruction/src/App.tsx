@@ -57,15 +57,21 @@ export const App: React.FC = () => {
       const search = window.location.search;
       if (path === '/' && !search.includes('signed_in')) {
         setAppMode('landing');
-      } else if (path.startsWith('/~') || search.includes('signed_in')) {
+      } else if (path.startsWith('/~') || path.startsWith('/@') || path === '/routines' || path === '/import' || path === '/repls' || path.startsWith('/settings') || search.includes('signed_in')) {
         setAppMode('signed_in');
         if (path === '/repls') setCurrentScreen('projects');
+        else if (path === '/routines' || path === '/~/routines') setCurrentScreen('routines');
+        else if (path === '/security' || path === '/~/security') setCurrentScreen('security');
+        else if (path === '/import') setCurrentScreen('import');
+        else if (path.startsWith('/@')) setCurrentScreen('workspace');
+        else if (path.startsWith('/settings')) setCurrentScreen('settings');
         else if (path.includes('/teams')) setCurrentScreen('teams');
         else if (path.includes('/deployments')) setCurrentScreen('deployments');
         else setCurrentScreen('home');
       }
     };
     window.addEventListener('popstate', handlePopState);
+    handlePopState();
 
     // Dev test hooks guarded by import.meta.env.DEV
     if (import.meta.env.DEV) {

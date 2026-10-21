@@ -1,0 +1,31 @@
+{
+  "browser": {
+    "mode": "launch",
+    "executable_path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "headless": true
+  },
+  "start_url": { "url": "http://127.0.0.1:5174/" },
+  "actions": [
+    {
+      "step_id": "wait_home",
+      "action": "wait_for_timeout",
+      "duration_ms": 1000
+    },
+    {
+      "step_id": "click_routines",
+      "action": "click",
+      "locator": { "kind": "css", "selector": "button[aria-label='Routines'], a[href*='routines']" },
+      "timeout_ms": 5000
+    },
+    {
+      "step_id": "wait_routines",
+      "action": "wait_for_timeout",
+      "duration_ms": 1000
+    }
+  ],
+  "capture": {
+    "after_each_step": ["dom", "accessibility", "screenshot"],
+    "at_end": ["dom", "accessibility", "screenshot", "url"],
+    "events": ["console"]
+  }
+}

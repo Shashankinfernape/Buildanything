@@ -4,219 +4,257 @@ import { ProjectItem } from '../../fixtures/signedInFixtures';
 interface ProjectsListProps {
   projects: ProjectItem[];
   onOpenProject: (projectId: string) => void;
-  onDeleteProject: (projectId: string) => void;
-  onOpenCreate: () => void;
+  onDeleteProject?: (projectId: string) => void;
+  onOpenCreate?: () => void;
 }
 
 export const ProjectsList: React.FC<ProjectsListProps> = ({
   projects,
-  onOpenProject,
-  onDeleteProject,
-  onOpenCreate
+  onOpenProject
 }) => {
   const [activeTab, setActiveTab] = useState<'projects' | 'assets'>('projects');
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
+  const [statusFilter, setStatusFilter] = useState('Any status');
+  const [artifactFilter, setArtifactFilter] = useState('Any artifact type');
+  const [ownershipFilter, setOwnershipFilter] = useState('All projects');
 
   const filteredProjects = projects.filter((p) =>
     p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    p.language.toLowerCase().includes(searchQuery.toLowerCase())
+    p.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
-    <div className="flex-1 overflow-y-auto bg-[#1E1E1F] min-h-screen text-[#E9EAEA] p-600 flex flex-col items-center font-brand select-none">
-      <div className="w-full max-w-[1000px] flex flex-col gap-600">
-        {/* Top Header & New Button */}
-        <div className="flex items-center justify-between border-b border-[#2B2B2D] pb-400">
-          <div>
-            <h1 className="m-0 font-brand text-[28px] font-semibold text-white tracking-tight">
+    <main
+      id="main-content"
+      className="relative flex flex-col shrink basis-0 min-h-0 grow max-tablet-min:overflow-x-hidden max-tablet-min:pt-(--AppLayout--header-height) z-1 overflow-y-auto"
+    >
+      <div className="box-border mx-auto w-full min-w-0 px-400 pt-[72px] tablet-min:px-2000 tablet-min:max-w-[1184px]">
+        
+        {/* TABS CONTAINER */}
+        <div data-ruic="Tabs" data-analytics-id="things_section" className="react-aria-Tabs">
+          <div style={{ border: 0, clip: 'rect(0 0 0 0)', clipPath: 'inset(50%)', height: '1px', margin: '-1px', overflow: 'hidden', padding: 0, position: 'absolute', width: '1px', whiteSpace: 'nowrap' }}>
+            <h1 className="box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 text-sm font-medium wrap-break-word inline text-color-default">
               Projects
             </h1>
-            <p className="m-0 mt-50 font-brand text-[13px] text-[#9CA3AF]">
-              Manage and collaborate on your Replit projects and deployments.
-            </p>
           </div>
 
-          <button
-            type="button"
-            onClick={onOpenCreate}
-            className="flex items-center gap-150 px-300 py-150 rounded-8 bg-[#ff3c00] hover:bg-[#e03500] text-white font-brand text-[13px] font-medium transition-colors cursor-pointer border-0 shadow-sm"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-            </svg>
-            <span>New project</span>
-          </button>
-        </div>
+          <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 gap-400">
+            <h2 className="box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 text-2xl font-medium wrap-break-word inline text-color-default">
+              Library
+            </h2>
 
-        {/* Tabs Bar & Filters */}
-        <div className="flex items-center justify-between gap-400 flex-wrap">
-          <div className="flex items-center gap-100 border-b border-[#2B2B2D]">
-            <button
-              type="button"
-              onClick={() => setActiveTab('projects')}
-              className={`px-300 py-150 text-[13px] font-brand font-medium transition-colors cursor-pointer border-0 bg-transparent border-b-2 ${
-                activeTab === 'projects'
-                  ? 'border-[#ff3c00] text-white'
-                  : 'border-transparent text-[#9CA3AF] hover:text-white'
-              }`}
+            {/* TAB LIST */}
+            <div
+              data-ruic="TabList"
+              aria-label="Library"
+              role="tablist"
+              aria-orientation="horizontal"
+              className="flex grow-0 flex-row items-stretch pb-px shadow-[inset_0_-1px_0_var(--outline-dimmest)]"
             >
-              Projects ({filteredProjects.length})
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveTab('assets')}
-              className={`px-300 py-150 text-[13px] font-brand font-medium transition-colors cursor-pointer border-0 bg-transparent border-b-2 ${
-                activeTab === 'assets'
-                  ? 'border-[#ff3c00] text-white'
-                  : 'border-transparent text-[#9CA3AF] hover:text-white'
-              }`}
-            >
-              Assets (0)
-            </button>
-          </div>
-
-          {/* Search bar & Filter Pills */}
-          <div className="flex items-center gap-200 grow max-w-[400px]">
-            <div className="relative w-full">
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search projects..."
-                className="w-full bg-[#252627] border border-[#3E3E41] rounded-6 px-300 py-150 text-[13px] text-white placeholder:text-[#6B7280] outline-none focus:border-white/30"
-              />
-              {searchQuery && (
-                <button
-                  type="button"
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-200 top-1/2 -translate-y-1/2 text-[#9CA3AF] hover:text-white border-0 bg-transparent cursor-pointer text-xs"
-                >
-                  ✕
-                </button>
-              )}
-            </div>
-            <div className="flex items-center gap-100 px-200 py-150 rounded-6 bg-[#252627] border border-[#3E3E41] text-xs text-[#9CA3AF] whitespace-nowrap cursor-pointer">
-              <span>All projects</span>
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M7 10l5 5 5-5z" />
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        {/* Projects Grid / List */}
-        {activeTab === 'projects' ? (
-          filteredProjects.length === 0 ? (
-            /* Empty State */
-            <div className="flex flex-col items-center justify-center py-1200 text-center gap-200 border border-dashed border-[#3E3E41] rounded-12 bg-[#252627]/40">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-[#6B7280]">
-                <rect x="3" y="3" width="18" height="18" rx="2" strokeWidth="2" />
-                <path d="M9 3v18M3 9h18" strokeWidth="2" />
-              </svg>
-              <p className="m-0 text-[15px] font-medium text-white">No projects found</p>
-              <p className="m-0 text-xs text-[#9CA3AF] max-w-[320px]">
-                {searchQuery ? `No projects match "${searchQuery}".` : 'Create your first project to get started.'}
-              </p>
+              {/* Tab 1: Projects */}
               <button
                 type="button"
-                onClick={onOpenCreate}
-                className="mt-200 px-300 py-150 rounded-6 bg-[#ff3c00] text-white text-xs font-medium cursor-pointer border-0 hover:bg-[#e03500]"
+                role="tab"
+                aria-selected={activeTab === 'projects'}
+                onClick={() => setActiveTab('projects')}
+                className={`relative flex flex-row items-center gap-200 cursor-pointer mx-0 mt-0 -mb-px border-x-0 border-t-0 border-b border-solid rounded-t-6 rounded-b-none px-200 pt-200 select-none font-inherit transition-background duration-snappy ease-snappy bg-transparent ${
+                  activeTab === 'projects'
+                    ? 'text-(--foreground-default) border-b-(--foreground-default) pb-[7px]'
+                    : 'text-(--foreground-dimmer) border-b-transparent pb-[7px] hover:text-(--foreground-default)'
+                }`}
               >
-                Create Project
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path fillRule="evenodd" d="M8.927 8.054a2.334 2.334 0 0 1 2.858-1.65l9.416 2.523a2.334 2.334 0 0 1 1.65 2.858l-2.523 9.416a2.334 2.334 0 0 1-2.858 1.65l-9.416-2.523a2.334 2.334 0 0 1-1.65-2.858zm2.491-.28a.915.915 0 0 0-1.121.647l-2.524 9.416c-.13.488.16.99.648 1.121l9.416 2.523c.488.131.99-.159 1.121-.647l2.523-9.416a.916.916 0 0 0-.647-1.121z" clipRule="evenodd" />
+                  <path d="M13.232 1.15a2.334 2.334 0 0 1 2.334 2.334V4.89a.71.71 0 0 1-1.418 0V3.484a.916.916 0 0 0-.916-.916H3.484a.916.916 0 0 0-.916.916v9.748c0 .506.41.916.916.916H4.89a.71.71 0 1 1 0 1.418H3.484a2.334 2.334 0 0 1-2.334-2.334V3.484A2.334 2.334 0 0 1 3.484 1.15z" />
+                </svg>
+                <span className="inline-block leading-none text-sm font-normal">Projects</span>
+              </button>
+
+              {/* Tab 2: Assets */}
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === 'assets'}
+                onClick={() => setActiveTab('assets')}
+                className={`relative flex flex-row items-center gap-200 cursor-pointer mx-0 mt-0 -mb-px border-x-0 border-t-0 border-b border-solid rounded-t-6 rounded-b-none px-200 pt-200 select-none font-inherit transition-background duration-snappy ease-snappy bg-transparent ${
+                  activeTab === 'assets'
+                    ? 'text-(--foreground-default) border-b-(--foreground-default) pb-[7px]'
+                    : 'text-(--foreground-dimmer) border-b-transparent pb-[7px] hover:text-(--foreground-default)'
+                }`}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path fillRule="evenodd" d="m14 1.25.038.001a3.15 3.15 0 0 1 2.196.925l3.586 3.586A3.16 3.16 0 0 1 20.75 8v12A2.75 2.75 0 0 1 18 22.75H6A2.75 2.75 0 0 1 3.25 20V4A2.75 2.75 0 0 1 6 1.25zm-8 1.5A1.25 1.25 0 0 0 4.75 4v16A1.25 1.25 0 0 0 6 21.25h12A1.25 1.25 0 0 0 19.25 20V8.75H15A1.75 1.75 0 0 1 13.25 7V2.75zM14.75 7a.25.25 0 0 0 .25.25h4.07a1.7 1.7 0 0 0-.306-.424l-3.591-3.59a1.7 1.7 0 0 0-.423-.306z" clipRule="evenodd" />
+                </svg>
+                <span className="inline-block leading-none text-sm font-normal">Assets</span>
               </button>
             </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-300">
-              {filteredProjects.map((p) => (
-                <div
-                  key={p.id}
-                  className="flex flex-col p-400 rounded-8 bg-[#252627] border border-[#3E3E41] hover:border-[#52545A] hover:bg-[#2A2B2D] transition-all relative group"
-                >
-                  <div className="flex items-start justify-between gap-200">
-                    <div
-                      onClick={() => onOpenProject(p.id)}
-                      className="cursor-pointer flex items-center gap-200 grow min-w-0"
-                    >
-                      <div className="w-[32px] h-[32px] rounded-6 bg-[#ff3c00]/20 border border-[#ff3c00]/40 flex items-center justify-center text-[#ff3c00] text-xs font-bold shrink-0">
-                        {p.icon || '⌘'}
-                      </div>
-                      <div className="flex flex-col min-w-0 grow">
-                        <span className="font-brand font-medium text-[14px] text-white truncate group-hover:text-[#ff3c00] transition-colors">
-                          {p.title}
-                        </span>
-                        <span className="text-[12px] text-[#9CA3AF] truncate">
-                          {p.description}
-                        </span>
-                      </div>
-                    </div>
+          </div>
 
-                    {/* Actions Menu button */}
-                    <div className="relative">
+          {/* TABPANEL CONTENT */}
+          {activeTab === 'projects' ? (
+            <div role="tabpanel" className="focus-visible:outline-2 focus-visible:outline-solid">
+              <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0" style={{ paddingTop: '32px' }}>
+                <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0">
+                  
+                  {/* FILTERS TOOLBAR */}
+                  <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none shrink-0 flex-row justify-between items-center gap-200 flex-wrap pb-400 max-tablet-min:flex-col max-tablet-min:items-stretch">
+                    <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none justify-logical-start shrink-0 flex-row items-center gap-200 flex-wrap">
+                      
+                      {/* Search Input */}
+                      <div className="flex box-border min-h-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 grow min-w-3200 max-w-full max-tablet-min:basis-full">
+                        <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch relative shrink">
+                          <input
+                            data-ruic="Input"
+                            placeholder="Search"
+                            aria-label="Search"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="cursor-text outline-none text-color-default placeholder:text-(--foreground-dimmest) shadow-interactive-input bg-surface border border-surface-border-strong rounded-6 px-250 py-200 text-[14px] leading-[1.2] h-800 pr-800 _sdz_theme-text-input _sdz_switch-theme"
+                            style={{ minHeight: '32px', height: '32px' }}
+                          />
+                          <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col shrink-0 pointer-events-none absolute right-0 top-0 h-full items-center justify-center p-200">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                              <path fillRule="evenodd" d="M11 2.25a8.75 8.75 0 0 1 6.693 14.383l3.837 3.837a.75.75 0 0 1-1.06 1.06l-3.837-3.837A8.75 8.75 0 1 1 11 2.25m0 1.5a7.25 7.25 0 1 0 0 14.5 7.25 7.25 0 0 0 0-14.5" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Filter 1: Status */}
                       <button
                         type="button"
-                        onClick={() => setActiveMenuId(activeMenuId === p.id ? null : p.id)}
-                        className="p-100 rounded-4 hover:bg-white/10 text-[#9CA3AF] hover:text-white cursor-pointer border-0 bg-transparent"
+                        className="text-color-default appearance-none border-0 border-solid border-transparent select-none bg-surface _sdz_custom-hover:shades-up-2 flex min-h-0 min-w-0 basis-auto cursor-pointer flex-row items-center shrink-0 justify-between h-800 gap-50 rounded-6 px-200"
+                        style={{ minWidth: '128px', height: '32px' }}
                       >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                          <circle cx="12" cy="5" r="2" />
-                          <circle cx="12" cy="12" r="2" />
-                          <circle cx="12" cy="19" r="2" />
+                        <span className="flex min-w-0 items-center gap-200 grow justify-between px-100 text-label-l-control">
+                          <span className="min-w-0 grow truncate text-left text-xs font-normal">{statusFilter}</span>
+                        </span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                          <path fillRule="evenodd" d="M12.53 15.53a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 0 1 1.06-1.06L12 13.94l5.47-5.47a.75.75 0 1 1 1.06 1.06z" clipRule="evenodd" />
                         </svg>
                       </button>
 
-                      {/* Dropdown Menu */}
-                      {activeMenuId === p.id && (
-                        <div className="absolute right-0 top-full mt-50 z-20 w-[140px] rounded-6 bg-[#18191B] border border-[#3E3E41] shadow-xl py-100 flex flex-col">
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setActiveMenuId(null);
-                              onOpenProject(p.id);
-                            }}
-                            className="px-300 py-150 text-left text-xs text-white hover:bg-white/10 cursor-pointer border-0 bg-transparent"
-                          >
-                            Open in Editor
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setActiveMenuId(null);
-                              onDeleteProject(p.id);
-                            }}
-                            className="px-300 py-150 text-left text-xs text-red-400 hover:bg-red-500/10 cursor-pointer border-0 bg-transparent"
-                          >
-                            Delete Project
-                          </button>
-                        </div>
-                      )}
+                      {/* Filter 2: Artifact Type */}
+                      <button
+                        type="button"
+                        className="text-color-default appearance-none border-0 border-solid border-transparent select-none bg-surface _sdz_custom-hover:shades-up-2 flex min-h-0 min-w-0 basis-auto cursor-pointer flex-row items-center shrink-0 justify-between h-800 gap-50 rounded-6 px-200"
+                        style={{ minWidth: '128px', height: '32px' }}
+                      >
+                        <span className="flex min-w-0 items-center gap-200 grow justify-between px-100 text-label-l-control">
+                          <span className="min-w-0 grow truncate text-left text-xs font-normal">{artifactFilter}</span>
+                        </span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                          <path fillRule="evenodd" d="M12.53 15.53a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 0 1 1.06-1.06L12 13.94l5.47-5.47a.75.75 0 1 1 1.06 1.06z" clipRule="evenodd" />
+                        </svg>
+                      </button>
+
+                      {/* Filter 3: Ownership */}
+                      <button
+                        type="button"
+                        className="text-color-default appearance-none border-0 border-solid border-transparent select-none bg-surface _sdz_custom-hover:shades-up-2 flex min-h-0 min-w-0 basis-auto cursor-pointer flex-row items-center shrink-0 justify-between h-800 gap-50 rounded-6 px-200"
+                        style={{ minWidth: '128px', height: '32px' }}
+                      >
+                        <span className="flex min-w-0 items-center gap-200 grow justify-between px-100 text-label-l-control">
+                          <span className="min-w-0 grow truncate text-left text-xs font-normal">{ownershipFilter}</span>
+                        </span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                          <path fillRule="evenodd" d="M12.53 15.53a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 0 1 1.06-1.06L12 13.94l5.47-5.47a.75.75 0 1 1 1.06 1.06z" clipRule="evenodd" />
+                        </svg>
+                      </button>
+
                     </div>
                   </div>
 
-                  {/* Metadata footer */}
-                  <div className="flex items-center gap-200 mt-300 pt-200 border-t border-[#3E3E41]/60 text-xs text-[#9CA3AF]">
-                    <span className="font-mono bg-white/5 px-150 py-25 rounded-4 text-[11px] text-[#D1D5DB]">
-                      {p.language}
-                    </span>
-                    <span>·</span>
-                    <span>Updated {p.updatedAt}</span>
-                    <span className="ml-auto text-[11px] text-[#9CA3AF]">
-                      {p.isPrivate ? '🔒 Private' : '🌐 Public'}
-                    </span>
-                  </div>
+                  {/* PROJECT CARDS GRID */}
+                  <ol className="box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 grid gap-400 grid-cols-[repeat(auto-fill,minmax(var(--space-256),1fr))] list-none p-0 m-0">
+                    {filteredProjects.map((p) => (
+                      <li
+                        key={p.id}
+                        data-react-aria-pressable="true"
+                        onClick={() => onOpenProject(p.id)}
+                        className="flex box-border min-h-0 min-w-0 view-outline-none flex-col justify-logical-start items-stretch shrink-0 group/repl-card relative overflow-hidden rounded-12 text-color-default appearance-none border-solid transition-background-color duration-snappy ease-snappy bg-surface _sdz_surface _sdz_custom-hover:shades-up-2 border border-surface-border-regular select-text cursor-pointer"
+                        style={{ borderRadius: '12px' }}
+                      >
+                        {/* Top Thumbnail Preview */}
+                        <div className="flex box-border min-h-0 min-w-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 relative bg-center bg-cover bg-no-repeat aspect-video _sdz_surface bg-surface border-b border-surface-border-regular">
+                          <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col shrink-0 justify-center items-center absolute inset-0 overflow-hidden">
+                            <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-center items-center shrink-0 relative overflow-hidden rounded-8 _sdz_surface bg-surface border border-[#3E3E41]" style={{ width: '64px', height: '64px' }}>
+                              <span className="text-2xl">{p.icon || '🐍'}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Card Info & Actions */}
+                        <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none justify-logical-start grow shrink flex-row gap-300 items-center p-300">
+                          <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch gap-50 grow shrink">
+                            
+                            <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none shrink-0 flex-row justify-between items-center">
+                              <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch grow shrink">
+                                <span className="box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 text-sm max-w-full text-ellipsis whitespace-nowrap wrap-break-word inline-block overflow-hidden text-color-default font-normal">
+                                  {p.title}
+                                </span>
+                              </div>
+
+                              {/* Hover Action Buttons */}
+                              <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none justify-logical-start shrink-0 flex-row items-center gap-100 relative z-3 invisible w-0 overflow-hidden group-hover/repl-card:visible group-hover/repl-card:ml-200 group-hover/repl-card:w-auto group-hover/repl-card:overflow-visible">
+                                <button
+                                  type="button"
+                                  aria-label="Copy link"
+                                  onClick={(e) => { e.stopPropagation(); }}
+                                  className="box-border min-h-0 min-w-0 view-outline-none flex-col shrink-0 flex justify-center items-center rounded-6 text-color-default appearance-none border-0 select-none cursor-pointer bg-surface hover:shades-up-2 p-0"
+                                  style={{ width: '24px', height: '24px' }}
+                                >
+                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fillRule="evenodd" d="M6 7.75a4.25 4.25 0 0 0 0 8.5h3a.75.75 0 0 1 0 1.5H6a5.75 5.75 0 1 1 0-11.5h3a.75.75 0 0 1 0 1.5zM14.25 7a.75.75 0 0 1 .75-.75h3a5.75 5.75 0 1 1 0 11.5h-3a.75.75 0 0 1 0-1.5h3a4.25 4.25 0 1 0 0-8.5h-3a.75.75 0 0 1-.75-.75m-7 5a.75.75 0 0 1 .75-.75h8a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75" clipRule="evenodd" />
+                                  </svg>
+                                </button>
+                                <button
+                                  type="button"
+                                  aria-label="App Actions"
+                                  onClick={(e) => { e.stopPropagation(); }}
+                                  className="box-border min-h-0 min-w-0 view-outline-none flex-col shrink-0 flex justify-center items-center rounded-6 text-color-default appearance-none border-0 select-none cursor-pointer bg-surface hover:shades-up-2 p-0"
+                                  style={{ width: '24px', height: '24px' }}
+                                >
+                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fillRule="evenodd" d="M10.25 5a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0m0 7a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0m0 7a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0" clipRule="evenodd" />
+                                  </svg>
+                                </button>
+                              </div>
+                            </div>
+
+                            {/* Sub-row: Lock Icon & Timestamp */}
+                            <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none justify-logical-start shrink-0 flex-row items-center gap-100 text-(--foreground-dimmer)">
+                              <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 relative z-3">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                  <path fillRule="evenodd" d="M12 1.25A5.75 5.75 0 0 1 17.75 7v3.25H19A2.75 2.75 0 0 1 21.75 13v7A2.75 2.75 0 0 1 19 22.75H5A2.75 2.75 0 0 1 2.25 20v-7A2.75 2.75 0 0 1 5 10.25h1.25V7A5.75 5.75 0 0 1 12 1.25m-7 10.5c-.69 0-1.25.56-1.25 1.25v7c0 .69.56 1.25 1.25 1.25h14c.69 0 1.25-.56 1.25-1.25v-7c0-.69-.56-1.25-1.25-1.25zm7-9A4.25 4.25 0 0 0 7.75 7v3.25h8.5V7A4.25 4.25 0 0 0 12 2.75" clipRule="evenodd" />
+                                </svg>
+                              </div>
+                              <span className="box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 text-xs text-color-tertiary">·</span>
+                              <span className="box-border min-h-0 min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch text-xs text-color-tertiary shrink-0 whitespace-nowrap">
+                                6 months ago
+                              </span>
+                            </div>
+
+                          </div>
+                        </div>
+
+                      </li>
+                    ))}
+                  </ol>
+
                 </div>
-              ))}
+              </div>
             </div>
-          )
-        ) : (
-          /* Assets Empty Tab */
-          <div className="flex flex-col items-center justify-center py-1200 text-center gap-200 border border-dashed border-[#3E3E41] rounded-12 bg-[#252627]/40">
-            <p className="m-0 text-[15px] font-medium text-white">No uploaded assets</p>
-            <p className="m-0 text-xs text-[#9CA3AF]">Uploaded images, audio, and models will appear here.</p>
-          </div>
-        )}
+          ) : (
+            /* ASSETS EMPTY TAB */
+            <div role="tabpanel" className="pt-[48px] text-center text-color-tertiary text-sm">
+              <p>No uploaded assets found.</p>
+            </div>
+          )}
+
+        </div>
+
       </div>
-    </div>
+    </main>
   );
 };

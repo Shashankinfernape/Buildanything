@@ -8,7 +8,7 @@ build/
 work/target_artifacts/
 work/captures/
 work/exported-scripts/
-work/exported-scripts-signed-in/
+work/exported-scripts-*/
 work/recovered-chunks/
 work/recovered-signed-in/
 work/recovered-modules-combined/

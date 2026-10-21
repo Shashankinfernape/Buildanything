@@ -13,12 +13,13 @@ import { FooterCta, MarketingFooter } from './components/MarketingFooter';
 import { GlobalSidebar } from './components/signedIn/GlobalSidebar';
 import { HomeDashboard } from './components/signedIn/HomeDashboard';
 import { ProjectsList } from './components/signedIn/ProjectsList';
+import { ImportView } from './components/signedIn/ImportView';
+import { RoutinesView } from './components/signedIn/RoutinesView';
+import { SecurityView } from './components/signedIn/SecurityView';
 import { Workspace } from './components/signedIn/Workspace';
+import { WorkspaceSettingsView } from './components/signedIn/WorkspaceSettingsView';
 import { CreateAppModal } from './components/signedIn/CreateAppModal';
 import { SettingsModal } from './components/signedIn/SettingsModal';
-import { DeploymentsView } from './components/signedIn/DeploymentsView';
-import { TeamsView } from './components/signedIn/TeamsView';
-import { IntegrationsView } from './components/signedIn/IntegrationsView';
 
 import {
   initialProjects,
@@ -81,9 +82,11 @@ export const App: React.FC = () => {
   // Sync body and document theme with current app mode
   useEffect(() => {
     if (appMode === 'signed_in') {
-      document.body.style.backgroundColor = '#1E1E1F';
+      document.body.className = '_sdz_dark';
+      document.body.style.backgroundColor = 'rgb(30, 30, 31)';
       document.documentElement.style.colorScheme = 'dark';
     } else {
+      document.body.className = '';
       document.body.style.backgroundColor = 'rgb(246, 245, 244)';
       document.documentElement.style.colorScheme = 'light';
     }
@@ -119,12 +122,12 @@ export const App: React.FC = () => {
 
   const activeProject = projects.find((p) => p.id === activeProjectId) || projects[0];
 
-  const hideDevSwitcher = typeof window !== 'undefined' && (new URLSearchParams(window.location.search).has('hide_dev') || (window as any).__hideDevSwitcher);
+  const showDevSwitcher = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('dev') === '1';
 
   return (
     <div className="relative w-full h-full min-h-screen">
-      {/* Floating Mode Switcher (Allows testing both landing and signed-in app) */}
-      {!hideDevSwitcher && (
+      {/* Floating Mode Switcher (Guarded behind dev flag: only visible with ?dev=1) */}
+      {showDevSwitcher && (
         <div id="dev-mode-switcher" className="fixed top-200 right-300 z-50 flex items-center bg-black/80 backdrop-blur-md rounded-full p-50 border border-white/20 shadow-xl text-[12px] font-brand">
           <button
             type="button"
@@ -164,66 +167,75 @@ export const App: React.FC = () => {
         </div>
       ) : (
         /* VIEW MODE 2: SIGNED-IN REPLIT APPLICATION */
-        <div className="replit-signed-in-root">
-          {/* Main Global Navigation Sidebar (collapses inside workspace) */}
-          {currentScreen !== 'workspace' && (
+        <div
+          className="flex box-border min-w-0 border-0 border-solid view-outline-none flex-col justify-logical-start items-stretch shrink-0 w-full ease-chill h-dvh min-h-dvh max-h-dvh transition-[padding-left] _sdz_theme-default _sdz_surface _sdz_switch-theme relative"
+          style={{
+            paddingLeft: currentScreen === 'settings' ? '0px' : '240px',
+            visibility: 'visible',
+            opacity: 1,
+            backgroundColor: 'transparent'
+          }}
+        >
+          {/* Main Global Navigation Sidebar (collapses inside settings) */}
+          {currentScreen !== 'settings' && (
             <GlobalSidebar
               currentScreen={currentScreen}
               onNavigate={(s) => setCurrentScreen(s)}
               projects={projects}
               user={user}
               onOpenCreate={() => setIsCreateOpen(true)}
-              onOpenSettings={() => setIsSettingsOpen(true)}
+              onOpenSettings={() => setCurrentScreen('settings')}
               activeProjectId={activeProjectId}
               onSelectProject={handleOpenProject}
             />
           )}
 
           {/* Active Screen Content */}
-          <main className="replit-main-surface">
-            {currentScreen === 'home' && (
-              <HomeDashboard
-                user={user}
-                projects={projects}
-                onOpenProject={handleOpenProject}
-                onOpenCreate={handleOpenCreateWithTemplate}
-                onNavigate={(s) => setCurrentScreen(s)}
-              />
-            )}
+          {currentScreen === 'home' && (
+            <HomeDashboard
+              user={user}
+              projects={projects}
+              onOpenProject={handleOpenProject}
+              onOpenCreate={handleOpenCreateWithTemplate}
+              onNavigate={(s) => setCurrentScreen(s)}
+            />
+          )}
 
-            {currentScreen === 'projects' && (
-              <ProjectsList
-                projects={projects}
-                onOpenProject={handleOpenProject}
-                onDeleteProject={handleDeleteProject}
-                onOpenCreate={() => setIsCreateOpen(true)}
-              />
-            )}
+          {currentScreen === 'projects' && (
+            <ProjectsList
+              projects={projects}
+              onOpenProject={handleOpenProject}
+              onDeleteProject={handleDeleteProject}
+              onOpenCreate={() => setIsCreateOpen(true)}
+            />
+          )}
 
-            {currentScreen === 'workspace' && activeProject && (
-              <Workspace
-                project={activeProject}
-                onUpdateProject={handleUpdateProject}
-                onBackToDashboard={() => setCurrentScreen('home')}
-              />
-            )}
+          {currentScreen === 'workspace' && activeProject && (
+            <Workspace
+              project={activeProject}
+              onUpdateProject={handleUpdateProject}
+              onBackToDashboard={() => setCurrentScreen('home')}
+            />
+          )}
 
-            {currentScreen === 'deployments' && (
-              <DeploymentsView
-                deployments={deployments}
-                onOpenProject={handleOpenProject}
-              />
-            )}
+          {currentScreen === 'import' && (
+            <ImportView onOpenCreate={handleOpenCreateWithTemplate} />
+          )}
 
-            {currentScreen === 'teams' && (
-              <TeamsView
-                members={teams}
-                onAddMember={(m) => setTeams((prev) => [...prev, m])}
-              />
-            )}
+          {currentScreen === 'routines' && (
+            <RoutinesView />
+          )}
 
-            {currentScreen === 'integrations' && <IntegrationsView />}
-          </main>
+          {currentScreen === 'security' && (
+            <SecurityView />
+          )}
+
+          {currentScreen === 'settings' && (
+            <WorkspaceSettingsView
+              user={user}
+              onBackToApp={() => setCurrentScreen('home')}
+            />
+          )}
 
           {/* Global Modals */}
           <CreateAppModal

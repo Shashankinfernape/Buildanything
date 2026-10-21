@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Import",
+    "compared_pixels": 1101600,
+    "changed_pixels_t5": 35260,
+    "changed_ratio_t5": "3.20%",
+    "changed_pixels_t1": 170737,
+    "changed_ratio_t1": "15.50%",
+    "mean_delta": "1.417",
+    "pass": true
+  },
+  {
+    "name": "Library",
+    "compared_pixels": 1101600,
+    "changed_pixels_t5": 45915,
+    "changed_ratio_t5": "4.17%",
+    "changed_pixels_t1": 180844,
+    "changed_ratio_t1": "16.42%",
+    "mean_delta": "1.689",
+    "pass": true
+  },
+  {
+    "name": "Routines",
+    "compared_pixels": 1101600,
+    "changed_pixels_t5": 82559,
+    "changed_ratio_t5": "7.49%",
+    "changed_pixels_t1": 217406,
+    "changed_ratio_t1": "19.74%",
+    "mean_delta": "2.176",
+    "pass": true
+  },
+  {
+    "name": "Security",
+    "compared_pixels": 1101600,
+    "changed_pixels_t5": 83137,
+    "changed_ratio_t5": "7.55%",
+    "changed_pixels_t1": 224946,
+    "changed_ratio_t1": "20.42%",
+    "mean_delta": "2.144",
+    "pass": true
+  },
+  {
+    "name": "Workspace Settings",
+    "compared_pixels": 1101600,
+    "changed_pixels_t5": 70876,
+    "changed_ratio_t5": "6.43%",
+    "changed_pixels_t1": 82657,
+    "changed_ratio_t1": "7.50%",
+    "mean_delta": "2.297",
+    "pass": true
+  },
+  {
+    "name": "Workspace Editor",
+    "compared_pixels": 1101600,
+    "changed_pixels_t5": 131954,
+    "changed_ratio_t5": "11.98%",
+    "changed_pixels_t1": 759691,
+    "changed_ratio_t1": "68.96%",
+    "mean_delta": "7.157",
+    "pass": true
+  }
+]

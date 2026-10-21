@@ -1,0 +1,38 @@
+[
+  {
+    "screen": "import",
+    "compared_pixels": 1101600,
+    "changed_pixels_t5": 35260,
+    "changed_ratio_t5": "3.20%",
+    "changed_pixels_t1": 170737,
+    "changed_ratio_t1": "15.50%",
+    "mean_channel_delta": "1.417"
+  },
+  {
+    "screen": "library",
+    "compared_pixels": 1101600,
+    "changed_pixels_t5": 45915,
+    "changed_ratio_t5": "4.17%",
+    "changed_pixels_t1": 180844,
+    "changed_ratio_t1": "16.42%",
+    "mean_channel_delta": "1.689"
+  },
+  {
+    "screen": "routines",
+    "compared_pixels": 1101600,
+    "changed_pixels_t5": 82559,
+    "changed_ratio_t5": "7.49%",
+    "changed_pixels_t1": 217406,
+    "changed_ratio_t1": "19.74%",
+    "mean_channel_delta": "2.176"
+  },
+  {
+    "screen": "security",
+    "compared_pixels": 1101600,
+    "changed_pixels_t5": 83137,
+    "changed_ratio_t5": "7.55%",
+    "changed_pixels_t1": 224946,
+    "changed_ratio_t1": "20.42%",
+    "mean_channel_delta": "2.144"
+  }
+]

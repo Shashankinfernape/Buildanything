@@ -54,10 +54,10 @@ export interface TeamMember {
 
 export const initialUserProfile: UserProfile = {
   id: 'usr_alex_01',
-  name: 'Alex Builder',
-  username: 'alexbuilder',
+  name: 'Alex',
+  username: 'alex',
   email: 'alex@example.com',
-  initials: 'AB',
+  initials: 'A',
   avatarColor: '#2563EB',
   plan: 'Free',
   creditsRemaining: 85,
@@ -67,7 +67,7 @@ export const initialUserProfile: UserProfile = {
 export const initialProjects: ProjectItem[] = [
   {
     id: 'proj_demo',
-    title: 'DemoProject',
+    title: 'DeficientPlumpMisrac',
     description: 'Python Flask REST API with microservice architecture',
     language: 'Python',
     icon: '🐍',
@@ -106,29 +106,18 @@ gunicorn==21.2.0
 requests==2.31.0
 pytest==7.4.3
 `,
-      'README.md': `# DemoProject
+      'README.md': `# DeficientPlumpMisrac
 
 A clean Python microservice starter project running on Replit.
-
-## Features
-- Flask REST API endpoint routing
-- JSON serialization
-- Automatic reload in development
 `,
       '.replit': `entrypoint = "main.py"
 run = "python main.py"
-
-[nix]
-channel = "stable-23_11"
-
-[deployment]
-run = ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "main:app"]
 `
     }
   },
   {
     id: 'proj_commerce',
-    title: 'CommerceApp',
+    title: 'PetCareConnect',
     description: 'Modern storefront built with React and Tailwind',
     language: 'TypeScript',
     icon: '⚛️',
@@ -139,30 +128,16 @@ run = ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "main:app"]
     files: {
       'src/App.tsx': `import React from 'react';
 
-export default function CommerceApp() {
-  return (
-    <div className="p-8 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold">CommerceApp Storefront</h1>
-      <p className="mt-2 text-gray-600">Browse curated items and place demo orders.</p>
-    </div>
-  );
+export default function App() {
+  return <div>PetCareConnect</div>;
 }
 `,
-      'package.json': `{
-  "name": "commerce-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  }
-}
-`
+      'package.json': `{"name": "petcareconnect"}`
     }
   },
   {
     id: 'proj_service',
-    title: 'ServiceHub',
+    title: 'WaitlistWizard',
     description: 'Customer scheduling and messaging portal',
     language: 'Node.js',
     icon: '🟢',
@@ -171,16 +146,12 @@ export default function CommerceApp() {
     activeFile: 'server.js',
     openTabs: ['server.js'],
     files: {
-      'server.js': `const express = require('express');
-const app = express();
-app.get('/', (req, res) => res.send('ServiceHub running'));
-app.listen(3000);
-`
+      'server.js': `console.log('WaitlistWizard running');`
     }
   },
   {
     id: 'proj_waitlist',
-    title: 'WaitlistApp',
+    title: 'VisionMart',
     description: 'Viral referral signup page with analytics',
     language: 'HTML/CSS',
     icon: '🌐',
@@ -189,12 +160,7 @@ app.listen(3000);
     activeFile: 'index.html',
     openTabs: ['index.html'],
     files: {
-      'index.html': `<!DOCTYPE html>
-<html>
-<head><title>WaitlistApp</title></head>
-<body><h1>Join the Waitlist</h1></body>
-</html>
-`
+      'index.html': `<!DOCTYPE html><html><body><h1>VisionMart</h1></body></html>`
     }
   }
 ];

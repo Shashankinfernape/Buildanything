@@ -1,0 +1,134 @@
+{
+  "header_1034": {
+    "before": {
+      "width": 1019,
+      "height": 80
+    },
+    "after": {
+      "width": 1019,
+      "height": 80
+    },
+    "channel_threshold": 1,
+    "limitations": [
+      "Pixel comparison does not perform OCR, semantic layout analysis, or perceptual color correction.",
+      "Only non-interlaced 8-bit RGB and RGBA PNG screenshots are accepted.",
+      "PNG tRNS transparency is accepted only as a six-byte RGB color key; tRNS on RGBA or with another length is rejected."
+    ],
+    "status": "identical",
+    "compared_pixels": 81520,
+    "changed_pixels": 0,
+    "changed_ratio": 0,
+    "maximum_channel_delta": 1,
+    "mean_absolute_channel_delta": 0.0012972276741903827
+  },
+  "hero_1034": {
+    "before": {
+      "width": 1019,
+      "height": 833
+    },
+    "after": {
+      "width": 1019,
+      "height": 833
+    },
+    "channel_threshold": 1,
+    "limitations": [
+      "Pixel comparison does not perform OCR, semantic layout analysis, or perceptual color correction.",
+      "Only non-interlaced 8-bit RGB and RGBA PNG screenshots are accepted.",
+      "PNG tRNS transparency is accepted only as a six-byte RGB color key; tRNS on RGBA or with another length is rejected."
+    ],
+    "status": "different",
+    "compared_pixels": 848827,
+    "changed_pixels": 81477,
+    "changed_ratio": 0.09598775722261427,
+    "maximum_channel_delta": 241,
+    "mean_absolute_channel_delta": 1.261348307723482
+  },
+  "footer_1034": {
+    "before": {
+      "width": 1019,
+      "height": 811
+    },
+    "after": {
+      "width": 1019,
+      "height": 811
+    },
+    "channel_threshold": 1,
+    "limitations": [
+      "Pixel comparison does not perform OCR, semantic layout analysis, or perceptual color correction.",
+      "Only non-interlaced 8-bit RGB and RGBA PNG screenshots are accepted.",
+      "PNG tRNS transparency is accepted only as a six-byte RGB color key; tRNS on RGBA or with another length is rejected."
+    ],
+    "status": "different",
+    "compared_pixels": 826409,
+    "changed_pixels": 48065,
+    "changed_ratio": 0.05816127365505458,
+    "maximum_channel_delta": 250,
+    "mean_absolute_channel_delta": 3.5549431334847514
+  },
+  "header_390": {
+    "before": {
+      "width": 390,
+      "height": 64
+    },
+    "after": {
+      "width": 390,
+      "height": 64
+    },
+    "channel_threshold": 1,
+    "limitations": [
+      "Pixel comparison does not perform OCR, semantic layout analysis, or perceptual color correction.",
+      "Only non-interlaced 8-bit RGB and RGBA PNG screenshots are accepted.",
+      "PNG tRNS transparency is accepted only as a six-byte RGB color key; tRNS on RGBA or with another length is rejected."
+    ],
+    "status": "different",
+    "compared_pixels": 24960,
+    "changed_pixels": 24960,
+    "changed_ratio": 1,
+    "maximum_channel_delta": 244,
+    "mean_absolute_channel_delta": 5.560787259615385
+  },
+  "hero_390": {
+    "before": {
+      "width": 390,
+      "height": 777
+    },
+    "after": {
+      "width": 390,
+      "height": 777
+    },
+    "channel_threshold": 1,
+    "limitations": [
+      "Pixel comparison does not perform OCR, semantic layout analysis, or perceptual color correction.",
+      "Only non-interlaced 8-bit RGB and RGBA PNG screenshots are accepted.",
+      "PNG tRNS transparency is accepted only as a six-byte RGB color key; tRNS on RGBA or with another length is rejected."
+    ],
+    "status": "different",
+    "compared_pixels": 303030,
+    "changed_pixels": 58468,
+    "changed_ratio": 0.19294459294459296,
+    "maximum_channel_delta": 255,
+    "mean_absolute_channel_delta": 3.1928802428802427
+  },
+  "footer_390": {
+    "before": {
+      "width": 390,
+      "height": 1131
+    },
+    "after": {
+      "width": 390,
+      "height": 1131
+    },
+    "channel_threshold": 1,
+    "limitations": [
+      "Pixel comparison does not perform OCR, semantic layout analysis, or perceptual color correction.",
+      "Only non-interlaced 8-bit RGB and RGBA PNG screenshots are accepted.",
+      "PNG tRNS transparency is accepted only as a six-byte RGB color key; tRNS on RGBA or with another length is rejected."
+    ],
+    "status": "different",
+    "compared_pixels": 441090,
+    "changed_pixels": 44765,
+    "changed_ratio": 0.1014872248293999,
+    "maximum_channel_delta": 250,
+    "mean_absolute_channel_delta": 6.279246298941259
+  }
+}

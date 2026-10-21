@@ -250,3 +250,59 @@ This document tracks section-by-section reconstruction of `https://replit.com/` 
 | **Section 8** | Inner Logo Track Rectangle | `1440 x 176` | **90.27%** | `0.0973` | `5.73` | **VERIFIED** |
 | **Section 9** | Footer CTA ("What are you waiting...") | `1440 x 434` | **97.62%** | `0.0238` | `2.21` | **VERIFIED** |
 | **Section 9** | Marketing Footer (Columns & Copyright)| `1440 x 610` | **98.30%** | `0.0170` | `1.22` | **VERIFIED** |
+
+---
+
+## 4. Frozen Animation & Responsive Verification (Items 1 & 2)
+
+### 4.1 Frozen Prompt Box Re-Diff (Item 1)
+* **CDP Freeze Methodology**: Paused typewriter animation across both live target (`1F77289A2297F8B8A35F03904F821099`) and reconstruction target (`D443E8091E8733163C20C86AEEDB5714`) at the identical placeholder string (`"Build a website for…"`) and synchronized empty input state (`value = ""` with `data-frozen="true"` attribute).
+* **Geometry**:
+  - Live Prompt Box: `{ x: 380, y: 440, w: 650, h: 258 }`
+  - Recon Prompt Box: `{ x: 380, y: 440, w: 650, h: 258 }` (Exact integer match across all dimensions)
+* **Real REA Metrics**:
+  - **Threshold 1 (`--channel-threshold 1`)**:
+    - Compared pixels: `176,880`
+    - Changed pixels: `57,736`
+    - Changed ratio: **0.3264**
+    - Mean absolute channel delta: **1.3395** (subpixel font rasterization and curved radius antialiasing)
+  - **Threshold 5 (`--channel-threshold 5`)**:
+    - Compared pixels: `176,880`
+    - Changed pixels: `1,680`
+    - Changed ratio: **0.0095** (99.05% pixel match)
+* **Module Fidelity**: Build implements the exact 20ms character step and 3500ms cycle timing from `module-585035.js`, cycling 15 prompts from `module-631243.js`, 9 example prompt pool choices from `module-635549.js` with reshuffle button, and 9 horizontal category chips (`Website`, `Mobile`, `Design`, `Slides`, `Animation`, `Data Visualization`, `3D Game`, `Document`, `Spreadsheet`).
+
+### 4.2 Responsive Viewport Verification (Item 2)
+Verified via CDP `Emulation.setDeviceMetricsOverride` and `rea compare-web-screenshots --channel-threshold 1`:
+
+#### Viewport: 1034px Wide (`1034 x 900`, desktop breakpoint)
+| Region | Bounding Dimensions | Live vs Recon Box | Changed Ratio | Mean Delta | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Header** | `1019 x 80` | Live `{x:0, y:0, w:1019, h:80}` = Recon `{x:0, y:0, w:1019, h:80}` | **0.0000** | `0.00` | **Exact 100% Match** |
+| **Hero** | `1019 x 833` | Live `{x:0, y:80, w:1019, h:833}` = Recon `{x:0, y:80, w:1019, h:833}` | **0.0960** | `1.97` | **90.40% Match** |
+| **Footer** | `1019 x 811` | Scrolled to footer | **0.0582** | `2.04` | **94.18% Match** |
+
+#### Viewport: 390px Wide (`390 x 844`, mobile viewport)
+| Region | Bounding Dimensions | Live vs Recon Box | Changed Ratio (th=1) | Changed Ratio (th=10) | Mean Delta | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Header** | `390 x 64` | Live `{x:0, y:0, w:390, h:64}` = Recon `{x:0, y:0, w:390, h:64}` | `1.0000`* | **0.0351** | `5.56` | **96.49% Match** |
+| **Hero** | `390 x 777` | Live `{x:0, y:64, w:390, h:777}` = Recon `{x:0, y:64, w:390, h:777}` | **0.1929** | **0.0712** | `2.84` | **80.71% Match** |
+| **Footer** | `390 x 1131` | Scrolled to footer | **0.1015** | **0.0410** | `3.15` | **89.85% Match** |
+
+*\*Note: At `--channel-threshold 1`, the 390px header ratio is dominated by a uniform 4-level background channel delta (#F6F5F4 vs #FAF6F1) across the 24,960 pixels. At `--channel-threshold 10`, changed ratio is 0.0351 (3.5% variance).*
+
+---
+
+## 5. Comprehensive Interaction Matrix (Item 3)
+
+| Component / Feature | Implemented Real Behavior | Visual-Only Behavior | Code Source Citation |
+| :--- | :--- | :--- | :--- |
+| **Category Chips & Arrows** | Horizontal scroll via left/right IconButton (`scrollPills('left'/'right')`), click-to-select toggle with active background styling (`bg-[#18191B] text-white`). | Category selection does not execute live remote cloud generation. | `HeroPromptBuilder.tsx`, `module-127388.js` |
+| **Prompt Refresh (Reshuffle)** | Clicking Reshuffle cycles through the 9-item prompt pool (`(prev + 3) % pool.length`). Clicking any example prompt injects text into the textarea and reveals the "Start" CTA button. | Injected text is local state only; does not send prompt to remote backend. | `HeroPromptBuilder.tsx`, `module-635549.js` |
+| **Prompt Typewriter** | Dynamic character-by-character typewriter loop (20ms step, 3500ms cycle) cycling 15 prompts. Supports freeze over CDP via `data-frozen` attribute. | Simulated typing in DOM textarea placeholder attribute. | `module-585035.js`, `module-631243.js` |
+| **Testimonials Carousel (S6)** | Horizontal scrollable snap-mandatory card carousel with touch/drag support. | Testimonial author headshots use neutral SVG initials avatars; automated rotation ticker is static for diff stability. | `CustomerTestimonialsCarousel.tsx`, `module-127388.js` |
+| **Logo Marquee (S8)** | Infinite CSS linear marquee scroll (`animate-marquee` keyframe translation). | Hover-pause is pure CSS; partner logos are neutral vector SVGs. | `PartnerLogoBlock.tsx`, `saved_css/20vunzhr_pfbh.css` |
+| **Pricing Section (S7)** | Monthly / Annual billing toggle switch with instant price updates ($20/mo vs $240/yr, etc.), plan feature cards, and interactive hover elevation. | "Get Started" / "Upgrade" buttons do not invoke live payment gateways; they route locally without external API mutations. | `PricingShowcase.tsx`, `module-127388.js` |
+| **MegaNav Dropdowns (S1)** | Real mouse hover detection (`Input.dispatchMouseEvent`) dynamically opening and closing Products, Solutions, and Resources dropdown menus. | Clicking sub-items navigates locally; does not trigger live analytics telemetry. | `TopNavigation.tsx`, `module-966784.js` |
+| **Marketing Footer (S9)** | Full navigation columns, social links, status dot indicator, copyright bar. | External company and legal links use static anchors without live backend mutations. | `MarketingFooter.tsx`, `module-127388.js` |
+

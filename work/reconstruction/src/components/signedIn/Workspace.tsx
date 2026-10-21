@@ -79,28 +79,46 @@ export const Workspace: React.FC<WorkspaceProps> = ({
       {/* ========================================================= */}
       <div className="flex flex-col border-r border-[#2B2B2D] bg-[#1e1e1f]" style={{ width: '451px' }}>
         
-        {/* Chat Header (h: 40px) */}
-        <div className="h-[40px] px-300 border-b border-[#2B2B2D] flex items-center justify-between shrink-0">
-          <div className="flex items-center gap-150">
+        {/* Chat Header (h: 48px matching production layout) */}
+        <div className="h-[48px] px-[6px] border-b border-surface-border-regular flex items-center justify-between shrink-0 bg-surface">
+          <div className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none justify-logical-start flex-row items-center gap-100 shrink">
             <button
+              data-cy="repl-info-header-settings"
               type="button"
-              className="flex items-center gap-100 px-200 py-75 rounded-6 bg-white/5 hover:bg-white/10 text-white text-xs font-medium cursor-pointer border border-white/10"
+              className="flex min-h-0 min-w-0 basis-auto cursor-pointer flex-row items-center shrink self-auto justify-center h-800 gap-50 rounded-6 px-200 bg-surface hover:bg-surface-2 border-0 text-color-default"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path fillRule="evenodd" d="M12 4.25a.75.75 0 0 1 .75.75v6.25H19a.75.75 0 0 1 0 1.5h-6.25V19a.75.75 0 0 1-1.5 0v-6.25H5a.75.75 0 0 1 0-1.5h6.25V5a.75.75 0 0 1 .75-.75" clipRule="evenodd" />
+              <span className="flex min-w-0 items-center gap-200 px-100 text-label-l-control">
+                <span className="min-w-0 grow truncate text-left font-medium">{project.title}</span>
+              </span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path fillRule="evenodd" d="M12.53 15.53a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 0 1 1.06-1.06L12 13.94l5.47-5.47a.75.75 0 1 1 1.06 1.06z" clipRule="evenodd" />
               </svg>
-              <span>New chat</span>
             </button>
-          </div>
-          <div className="flex items-center gap-100 text-gray-400">
+
+            {/* Segmented Control Design / Build */}
+            <fieldset data-ruic="SegmentedControl" className="flex box-border min-h-0 min-w-0 border-0 border-solid view-outline-none justify-logical-start items-stretch shrink-0 relative rounded-8 flex-row w-fit bg-surface-2 p-[2px]">
+              <label className="relative flex flex-row items-center justify-center grow gap-50 min-w-0 min-h-0 rounded-6 cursor-pointer h-800 px-200 text-(--foreground-dimmest) hover:text-(--foreground-default)">
+                <span className="flex min-w-0 items-center gap-200 px-100 text-label-l-control">
+                  <span className="min-w-0 grow truncate text-left text-xs">Design</span>
+                </span>
+              </label>
+              <label className="relative flex flex-row items-center justify-center grow gap-50 min-w-0 min-h-0 rounded-6 cursor-pointer bg-surface shadow-control h-800 px-200 text-(--foreground-default) border border-surface-border-strong">
+                <span className="flex min-w-0 items-center gap-200 px-100 text-label-l-control">
+                  <span className="min-w-0 grow truncate text-left text-xs font-semibold">Build</span>
+                </span>
+              </label>
+            </fieldset>
+
+            {/* Recovery / Warning Icon */}
             <button
               type="button"
-              onClick={() => setIsRunning(!isRunning)}
-              className={`flex items-center gap-100 px-250 py-75 rounded-6 text-xs font-semibold cursor-pointer border-0 ${
-                isRunning ? 'bg-red-600 hover:bg-red-700 text-white' : 'bg-[#00c950] hover:bg-[#00b046] text-black font-bold'
-              }`}
+              aria-label="App is in recovery mode"
+              className="box-border min-h-0 min-w-0 flex justify-center items-center w-[24px] h-[24px] rounded-6 text-color-default bg-surface border-0 cursor-pointer"
             >
-              <span>{isRunning ? 'Stop' : 'Run'}</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent-orange-stronger)">
+                <path d="M12.016 15.5c.689 0 1.247.56 1.247 1.25S12.705 18 12.016 18H12c-.688 0-1.247-.56-1.247-1.25S11.312 15.5 12 15.5zM12 8.25a.75.75 0 0 1 .75.75v4a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75" />
+                <path fillRule="evenodd" d="M11.99 2.236a2.75 2.75 0 0 1 2.39 1.392l8 13.997a2.76 2.76 0 0 1 0 2.749 2.75 2.75 0 0 1-2.379 1.376H4a2.753 2.753 0 0 1-2.768-2.743 2.75 2.75 0 0 1 .369-1.382L9.6 3.628a2.75 2.75 0 0 1 2.39-1.392m0 1.5a1.25 1.25 0 0 0-1.087.634l-.002.002-8 14v.003a1.251 1.251 0 0 0 1.093 1.875H20l.163-.01a1.252 1.252 0 0 0 .918-1.865l-.002-.003-8-14V4.37a1.25 1.25 0 0 0-1.089-.634" clipRule="evenodd" />
+              </svg>
             </button>
           </div>
         </div>
@@ -366,11 +384,33 @@ export const Workspace: React.FC<WorkspaceProps> = ({
         {/* Terminal Content */}
         <div className="flex-1 overflow-y-auto p-300 font-mono text-xs leading-relaxed text-gray-300">
           {rightTab === 'console' ? (
-            <div className="flex flex-col gap-100">
-              {consoleLogs.map((log, i) => (
-                <div key={i} className="whitespace-pre-wrap">{log}</div>
-              ))}
-            </div>
+            consoleLogs.length === 0 ? (
+              <div className="flex flex-col items-center justify-center pt-800">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsRunning(true);
+                    setConsoleLogs([
+                      '> javac Main.java && java Main',
+                      'Hello, Replit!',
+                      '[Process finished with exit code 0]'
+                    ]);
+                  }}
+                  className="flex items-center gap-100 px-300 py-150 rounded-6 bg-surface hover:bg-surface-2 border border-surface-border-strong text-color-default cursor-pointer font-medium text-xs shadow-control"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path fillRule="evenodd" d="M20.593 10.91a1.25 1.25 0 0 1 0 2.18l-14.48 8.145a1.25 1.25 0 0 1-1.863-1.09V3.855a1.25 1.25 0 0 1 1.863-1.09z" clipRule="evenodd" />
+                  </svg>
+                  <span>Run .replit run command</span>
+                </button>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-100">
+                {consoleLogs.map((log, i) => (
+                  <div key={i} className="whitespace-pre-wrap">{log}</div>
+                ))}
+              </div>
+            )
           ) : (
             <div className="flex flex-col gap-100">
               {shellHistory.map((item, i) => (

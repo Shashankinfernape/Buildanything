@@ -62,12 +62,13 @@ All screens reachable from the live sidebar and header navigation were decompile
 
 | Screen | Route / URL | Compared Pixels | Changed Pixels (t=5) | Changed Ratio (t=5) | Changed Ratio (t=1) | Mean Delta | Verification Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Home Dashboard** | `https://replit.com/~` | 1,101,600 | 27,035 | **2.45%** | 3.72% | 1.457 | **PASS (< 15%)** |
+| **Routines** | `/routines` | 1,101,600 | 27,820 | **2.53%** | 14.74% | 1.141 | **PASS (< 15%)** |
 | **Import** | `/import` | 1,101,600 | 35,260 | **3.20%** | 15.50% | 1.417 | **PASS (< 15%)** |
-| **Library** | `/repls` | 1,101,600 | 45,915 | **4.17%** | 16.42% | 1.689 | **PASS (< 15%)** |
+| **Library** | `/repls` | 1,101,600 | 45,656 | **4.14%** | 16.39% | 1.679 | **PASS (< 15%)** |
 | **Workspace Settings** | `/settings/workspaceOverview` | 1,101,600 | 70,876 | **6.43%** | 7.50% | 2.297 | **PASS (< 15%)** |
-| **Routines** | `/routines` | 1,101,600 | 82,559 | **7.49%** | 19.74% | 2.176 | **PASS (< 15%)** |
-| **Security** | `/~/security` | 1,101,600 | 83,137 | **7.55%** | 20.42% | 2.144 | **PASS (< 15%)** |
-| **Workspace Editor** | `/@username/repl` | 1,101,600 | 131,954 | **11.98%** | 68.96% | 7.157 | **PASS (< 15%)** |
+| **Security** | `/~/security` | 1,101,600 | 84,853 | **7.70%** | 20.36% | 2.247 | **PASS (< 15%)** |
+| **Workspace Editor** | `/@username/repl` | 1,101,600 | 122,926 | **11.16%** | 68.13% | 6.269 | **PASS (< 15%)** |
 
 #### Citations and Evidence Files
 1. **Import (`/import`)**:
@@ -93,17 +94,17 @@ All screens reachable from the live sidebar and header navigation were decompile
    - Exported scripts: `work/exported-scripts-routines/` (190 script chunks)
    - DOM: `work/analysis/signed_in/routines_main_outer.html`
    - Screenshots: `analysis/screens/live_routines.png` vs `analysis/screens/recon_routines.png`
-   - Elements: Autopilot header, Replit Core schedule notice, routine suggestion pills with integration logos.
+   - Elements: Autopilot header, Replit Core schedule notice, 4 authentic routine suggestion pills directly cited from `routines_main_outer.html` (Google Calendar routine, Gmail reply routine, Slack catch-up routine, Custom routine schedule with clock icon) and external action arrow indicators.
 5. **Security (`/~/security`)**:
    - Evidence: `work/captures/page_security_evidence.json` (14.10 MB)
    - Exported scripts: `work/exported-scripts-security/` (187 script chunks)
    - DOM: `work/analysis/signed_in/security_main_outer.html`
    - Screenshots: `analysis/screens/live_security.png` vs `analysis/screens/recon_security.png`
-   - Elements: Dependency scan header, clean vulnerability status badge (`No vulnerabilities detected`), search filter.
+   - Elements: Dependency scan header, clean vulnerability status badge (`No vulnerabilities detected`), search filter input (`Search by project name or CVE`), 3 multi-select filter dropdowns (`Severity level`, `Publishing status`, `Publish visibility`), project count indicator (`Showing 0 projects`), and complete responsive vulnerabilities table with animated shield graphic empty state (`Your workspace is secure`).
 6. **Workspace Editor (`/@username/repl`)**:
    - Evidence: `work/captures/page_workspace_evidence.json` (29.77 MB)
    - Exported scripts: `work/exported-scripts-workspace/` (282 script chunks)
    - DOM: `work/analysis/signed_in/workspace_main_outer.html`
    - Screenshots: `analysis/screens/live_workspace.png` vs `analysis/screens/recon_workspace.png`
-   - Elements: Global sidebar at `0..240px`, Agent chat pane at `240..691px` (interactive prompt, model selector, Run button), Tools split pane at `691..1102px` (Tools tab, Main.java editor tab, Replit Cloud and Setup cards grid), Console & Shell split pane at `1102..1440px` (interactive terminal, execution logs, clear button).
+   - Elements: Global sidebar at `0..240px`, Agent chat pane at `240..691px` (authentic 48px header with project title selector, Design/Build segmented control, recovery badge, interactive prompt, CodeMirror drop target, model selector, Free tier pill, Plan checkbox, voice mic, and submit arrow), Tools split pane at `691..1102px` (Tools tab, Main.java editor tab, Replit Cloud and Setup cards grid), Console & Shell split pane at `1102..1440px` (interactive terminal, execution logs, clear button, and centered `Run .replit run command` action button).
 

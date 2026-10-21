@@ -12,31 +12,31 @@
   {
     "name": "Library",
     "compared_pixels": 1101600,
-    "changed_pixels_t5": 45915,
-    "changed_ratio_t5": "4.17%",
-    "changed_pixels_t1": 180844,
-    "changed_ratio_t1": "16.42%",
-    "mean_delta": "1.689",
+    "changed_pixels_t5": 45656,
+    "changed_ratio_t5": "4.14%",
+    "changed_pixels_t1": 180570,
+    "changed_ratio_t1": "16.39%",
+    "mean_delta": "1.679",
     "pass": true
   },
   {
     "name": "Routines",
     "compared_pixels": 1101600,
-    "changed_pixels_t5": 82559,
-    "changed_ratio_t5": "7.49%",
-    "changed_pixels_t1": 217406,
-    "changed_ratio_t1": "19.74%",
-    "mean_delta": "2.176",
+    "changed_pixels_t5": 27820,
+    "changed_ratio_t5": "2.53%",
+    "changed_pixels_t1": 162412,
+    "changed_ratio_t1": "14.74%",
+    "mean_delta": "1.141",
     "pass": true
   },
   {
     "name": "Security",
     "compared_pixels": 1101600,
-    "changed_pixels_t5": 83137,
-    "changed_ratio_t5": "7.55%",
-    "changed_pixels_t1": 224946,
-    "changed_ratio_t1": "20.42%",
-    "mean_delta": "2.144",
+    "changed_pixels_t5": 84853,
+    "changed_ratio_t5": "7.70%",
+    "changed_pixels_t1": 224231,
+    "changed_ratio_t1": "20.36%",
+    "mean_delta": "2.247",
     "pass": true
   },
   {
@@ -52,11 +52,11 @@
   {
     "name": "Workspace Editor",
     "compared_pixels": 1101600,
-    "changed_pixels_t5": 131954,
-    "changed_ratio_t5": "11.98%",
-    "changed_pixels_t1": 759691,
-    "changed_ratio_t1": "68.96%",
-    "mean_delta": "7.157",
+    "changed_pixels_t5": 122926,
+    "changed_ratio_t5": "11.16%",
+    "changed_pixels_t1": 750475,
+    "changed_ratio_t1": "68.13%",
+    "mean_delta": "6.269",
     "pass": true
   }
 ]

@@ -25,6 +25,9 @@ async function main() {
   const liveTarget = '4D5803D83D1C78981FF3E408A2F4B2D5';
   const reconTarget = '6D4B931B5EC0B7BE74E378FA2E19EDD9';
 
+  await evalInTab(reconTarget, "window.__openProject ? window.__openProject('proj_demo') : window.__setReconScreen('workspace')");
+  await new Promise(r => setTimeout(r, 1500));
+
   const script = `(() => {
     // List all visible elements in agent pane (x: 240..691)
     const els = Array.from(document.querySelectorAll('*')).filter(el => {

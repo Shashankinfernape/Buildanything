@@ -110,6 +110,9 @@ async function main() {
   const reconTab = tabs.find(t => t.id === '6D4B931B5EC0B7BE74E378FA2E19EDD9') || tabs.find(t => t.url.includes('5174'));
   if (!reconTab) throw new Error('Recon tab not found on 5174');
 
+  // Activate tab so Chrome does not throttle or hang screenshot captures
+  await fetch(`http://127.0.0.1:9222/json/activate/${reconTab.id}`);
+
   const session = new CdpSession(reconTab.webSocketDebuggerUrl);
   await session.connect();
 
